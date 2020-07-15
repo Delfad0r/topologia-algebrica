@@ -1,0 +1,51 @@
+\ProvidesPackage{mystyle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+% Beamer
+\setbeamertemplate{navigation symbols}{}
+\usecolortheme{seahorse}
+\newenvironment{frame*}{\begin{frame}{\secname}{\subsecname}}{\end{frame}}
+\renewenvironment{theorem}[1][]{\begin{block}{Teorema \ifx\newenvironment#1\newenvironment\else(#1)\fi}}{\end{block}}
+\renewenvironment{definition}{\begin{block}{Definizione}}{\end{block}}
+\newenvironment{proposition}{\begin{block}{Proposizione}}{\end{block}}
+\renewenvironment{example}{\begin{block}{Esempio}}{\end{block}}
+
+% Math packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% Graphics
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+% Relations
+\newcommand*{\subs}{\subseteq}
+\newcommand*{\sups}{\supseteq}
+\newcommand*{\iso}{\simeq}
+
+% Maps
+\newcommand*{\umap}[2]{#1\mathchoice{\longrightarrow}{\to}{\to}{\to}#2}
+\newcommand*{\map}[3]{#1\colon#2\mathchoice{\longrightarrow}{\to}{\to}{\to}#3}
+\newcommand*{\Map}[5]{%
+    \begin{alignat*}{2}
+    #1:\;&&#2&\longrightarrow#3\\
+    &&#4&\longmapsto#5
+    \end{alignat*}
+}
+\newcommand*{\uMap}[4]{%
+    \begin{align*}
+    #1&\longrightarrow#2\\
+    #3&\longmapsto#4
+    \end{align*}
+}
+
+% Aliases
+\newcommand*{\hmaps}[1]{\left\langle #1\right\rangle}
+\def\til{\widetilde}
+\def\CW0{\textbf{CW$_\bullet$}}
+
+% DeclareMathOperator
+\DeclareMathOperator{\Hom}{Hom}

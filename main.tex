@@ -1,0 +1,27 @@
+\documentclass[9pt]{beamer}
+\usepackage{mystyle}
+
+\begin{document}
+
+\section*{Costruzione omotopica della coomologia}
+\subsection*{Enunciato}
+\begin{frame*}
+\begin{theorem}
+Siano $X$ un CW-complesso, $G$ un gruppo abeliano, $n\ge 0$ un intero. Allora esiste una biiezione
+\[
+\map{T}{\hmaps{X,K(G,n)}}{\til{H}^n(X;G)}
+\]
+naturale in $X$.
+\end{theorem}
+\begin{itemize}
+\item Esiste una struttura canonica di gruppo abeliano su $\hmaps{X,K(G,n)}$ che rende $T$ un isomorfismo di gruppi.
+\item $T$ è della forma
+\[
+T([f])=f^*(\alpha)
+\]
+dove $\alpha$ è la ``classe fondamentale'' di $H^n(K(G,n);G)$.
+\end{itemize}
+\end{frame*}
+
+\include{categoria-cw}
+\end{document}

@@ -1,0 +1,69 @@
+\section*{Categoria \CW0}
+\subsection*{Definizione}
+\begin{frame*}
+Lavoreremo prevalentemente nella categoria \CW0.
+\begin{itemize}
+\item Gli oggetti sono i CW-complessi puntati $(X,x_0)$.
+\item I morfismi sono
+\[
+\Hom((X,x_0),(Y,y_0))=\hmaps{X,Y},
+\]
+funzioni continue $\map{f}{(X,x_0)}{(Y,y_0)}$ a meno di omotopia che fissa il punto base.
+\item La composizione
+\[
+\map{{}\circ{}}{\hmaps{Y,Z}\times\hmaps{X,Y}}{\hmaps{X,Z}}
+\]
+è ben definita.
+\end{itemize}
+\begin{example}
+Abbiamo l'uguaglianza (per ora solo insiemistica)
+\[
+\pi_n(X)=\hmaps{S^n,X}.
+\]
+\end{example}
+\end{frame*}
+
+\subsection*{Equivalenze omotopiche deboli}
+\begin{frame*}
+\begin{definition}
+Una funzione $\map{f}{X}{Y}$ si dice \emph{equivalenza omotopica debole} se per ogni $n\ge 0$  la mappa indotta
+\[
+\map{f_*}{\pi_n(X)}{\pi_n(Y)}
+\]
+è un isomorfismo.
+\end{definition}
+\begin{proposition}
+Siano $X$ un CW-complesso, $\map{f}{Y}{Z}$ un'equivalenza omotopica debole di spazi topologici. Allora
+\[
+\map{f\circ-}{\hmaps{X,Y}}{\hmaps{X,Z}}
+\]
+è una biiezione.
+\end{proposition}
+\begin{theorem}[Approssimazione CW]
+Per ogni spazio topologico $X$ esistono un CW-complesso $Z$ e un'equivalenza omotopica debole
+$\map{f}{Z}{X}$.
+\end{theorem}
+\end{frame*}
+
+\subsection*{Funtore $\Sigma$}
+\begin{frame*}
+\begin{itemize}
+\item La sospensione $SX$ di uno spazio topologico $X$ è
+\begin{align*}
+SX=X\times[0,1]/\sim,&&\text{$X\times\{0\}$ e $X\times\{1\}$ collassati a due punti.}
+\end{align*}
+\item Per un CW-complesso puntato $(X,x_0)$, è conveniente considerare la sospensione ridotta
+\begin{align*}
+\Sigma X=SX/\{x_0\}\times[0,1],&&\text{con punto base $[x_0]$.}
+\end{align*}
+\item Ogni $f\in\hmaps{X,Y}$ induce $\Sigma f\in\hmaps{\Sigma X,\Sigma Y}$; la sospensione ridotta è dunque un funtore
+\[
+\map{\Sigma}{\CW0}{\CW0}.
+\]
+\end{itemize}
+\end{frame*}
+
+\subsection*{Funtore $\Omega$}
+\begin{frame*}
+content...
+\end{frame*}
