@@ -9,7 +9,7 @@
 \begin{theorem}
 Siano $X$ un CW-complesso, $G$ un gruppo abeliano, $n\ge 0$ un intero. Allora esiste una biiezione
 \[
-\map{T}{\hmaps{X,K(G,n)}}{\til{H}^n(X;G)}
+\map[\iso]{T}{\hmaps{X,K(G,n)}}{\til{H}^n(X;G)}
 \]
 naturale in $X$.
 \end{theorem}
@@ -23,6 +23,17 @@ dove $\alpha$ è la ``classe fondamentale'' di $H^n(K(G,n);G)$.
 \end{itemize}
 \end{frame*}
 
-\include{categoria-cw}
+\subsection*{Strategia dimostrativa}
+\begin{frame*}
+\begin{enumerate}
+\addtolength\itemsep{1em}
+\item Struttura di gruppo su $\hmaps{X,K(G,n)}$ $\Longrightarrow$ definizione di $\Omega$-spettro.
+\item Per ogni $\Omega$-spettro $\{K_n\}$, la famiglia di funtori $h^n=\hmaps{-,K_n}$ è una teoria coomologica ridotta sulla categoria dei CW-complessi puntati.
+\item Se una teoria coomologica ridotta $h^*$ soddisfa $h^n(S^0)=0$ per $n\neq 0$, allora esistono isomorfismi naturali $h^n(X)\iso\til{H}^n(X;h^0(S^0))$.
+\end{enumerate}
+\end{frame*}
+
+\include{preliminari-topologici}
+\include{aggiunzione-sigma-omega}
 \include{omega-spettri}
 \end{document}

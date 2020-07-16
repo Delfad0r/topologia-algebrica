@@ -1,0 +1,173 @@
+\section*{Aggiunzione \texorpdfstring{$\Sigma\dashv\Omega$}{Sigma-Omega}}
+\subsection*{Categorie \texorpdfstring{\Top0}{Top.} e \texorpdfstring{\CW0}{CW.}}
+\begin{frame*}
+Lavoreremo nella categoria \Top0 e nella sua sottocategoria \CW0.
+\begin{itemize}
+\item Gli oggetti sono gli spazi topologici (o CW-complessi) puntati $(X,x_0)$.
+\item I morfismi sono
+\[
+\Hom((X,x_0),(Y,y_0))=\hmaps{X,Y},
+\]
+funzioni continue $\map{f}{(X,x_0)}{(Y,y_0)}$ a meno di omotopia che fissa il punto base.
+\item La composizione
+\[
+\map{{}\circ{}}{\hmaps{Y,Z}\times\hmaps{X,Y}}{\hmaps{X,Z}}
+\]
+è ben definita.
+\end{itemize}
+\begin{example}
+Abbiamo l'uguaglianza (per ora solo insiemistica)
+\[
+\pi_n(X)=\hmaps{S^n,X}.
+\]
+\end{example}
+\end{frame*}
+
+\begin{comment}
+
+\subsection*{Equivalenze omotopiche deboli}
+\begin{frame*}
+\begin{definition}
+Una funzione $\map{f}{X}{Y}$ si dice \emph{equivalenza omotopica debole} se per ogni $n\ge 0$  la mappa indotta
+\[
+\map{f_*}{\pi_n(X)}{\pi_n(Y)}
+\]
+è un isomorfismo.
+\end{definition}
+\begin{proposition}
+Siano $X$ un CW-complesso, $\map{f}{Y}{Z}$ un'equivalenza omotopica debole di spazi topologici. Allora
+\[
+\map{f\circ-}{\hmaps{X,Y}}{\hmaps{X,Z}}
+\]
+è una biiezione.
+\end{proposition}
+\begin{theorem}[Approssimazione CW]
+Per ogni spazio topologico $X$ esistono un CW-complesso $Z$ e un'equivalenza omotopica debole
+$\map{f}{Z}{X}$.
+\end{theorem}
+\end{frame*}
+\end{comment}
+
+\subsection*{Sospensione}
+\begin{frame*}
+\begin{itemize}
+\item La sospensione $SX$ di uno spazio topologico $X$ è
+\begin{align*}
+SX=X\times[0,1]/\sim,&&\text{$X\times\{0\}$ e $X\times\{1\}$ collassati a due punti.}
+\end{align*}
+\item Per uno spazio puntato $(X,x_0)$, è conveniente considerare la sospensione ridotta
+\begin{align*}
+\Sigma X=SX/\{x_0\}\times[0,1],&&\text{con punto base $[x_0]$.}
+\end{align*}
+\item Ogni $f\in\hmaps{X,Y}$ induce $\Sigma f\in\hmaps{\Sigma X,\Sigma Y}$:
+\[
+\Sigma f(x,t)=(f(x),t).
+\]
+\item La sospensione ridotta è dunque un funtore
+\[
+\map{\Sigma}{\Top0}{\Top0}
+\]
+che si restringe a
+\[
+\map{\Sigma}{\CW0}{\CW0}.
+\]
+\end{itemize}
+\end{frame*}
+
+\begin{frame*}
+Dati due spazi topologici puntati $X$, $Y$, esiste una struttura di gruppo canonica su $\hmaps{\Sigma X,Y}$.
+\begin{itemize}
+\item Per $f,g\in\hmaps{\Sigma X,Y}$, il prodotto $f\cdot g$ è così definito:
+\[
+f\cdot g(x,t)=\begin{dcases}f(x,2t)&t\le\frac{1}{2},\\g(x,2t-1)&t\ge\frac{1}{2}.\end{dcases}
+\]
+\item Si verifica facilmente che questa operazione definisce una struttura di gruppo, avente la funzione costante come elemento neutro.
+\item Per ogni $\map{f}{Y}{Z}$, la composizione
+\[
+\map{f\circ-{}}{\hmaps{\Sigma X,Y}}{\hmaps{\Sigma X,Z}}
+\]
+ è un omomorfismo di gruppi.
+ \item Di conseguenza, otteniamo il funtore
+ \[
+ \map{\hmaps{\Sigma X,-}}{\Top0}{\Grp}.
+ \]
+\end{itemize}
+\end{frame*}
+
+\subsection*{Spazio di lacci}
+\begin{frame*}
+\begin{itemize}
+\item Dato uno spazio topologico puntato $(X,x_0)$, definiamo lo spazio di lacci
+\[
+\Omega X=\left\{g\in X^{[0,1]}:g(0)=g(1)=x_0\right\}
+\]
+con punto base il cammino costante in $x_0$. La topologia è quella compatta-aperta.
+\item Ogni $f\in\hmaps{X,Y}$ induce $\Omega f\in\hmaps{\Omega X,\Omega Y}$ per composizione:
+\[
+\Omega f(g)=f\circ g.
+\]
+ \item Lo spazio di lacci è dunque un funtore
+\[
+\map{\Omega}{\Top0}{\Top0}.
+\]
+\end{itemize}
+\end{frame*}
+
+\begin{frame*}
+In modo duale a quanto accade per la sospensione, dati due spazi topologici puntati $X$, $Y$, esiste una struttura di gruppo canonica su $\hmaps{X,\Omega Y}$.
+\begin{itemize}
+\item Per $f,g\in\hmaps{X,\Omega Y}$, il prodotto $f\cdot g$ è così definito:
+\[
+f\cdot g(x)(t)=\begin{dcases}f(x)(2t)&t\le\frac{1}{2},\\g(x)(2t-1)&t\ge\frac{1}{2}.\end{dcases}
+\]
+\item Si verifica facilmente che questa operazione definisce una struttura di gruppo, avente la funzione costante come elemento neutro.
+\item Per ogni $\map{f}{X}{Z}$, la composizione
+\[
+\map{-\circ f}{\hmaps{Z,\Omega Y}}{\hmaps{X,\Omega Y}}
+\]
+ è un omomorfismo di gruppi.
+ \item Di conseguenza, otteniamo il funtore
+ \[
+ \map{\hmaps{-,\Omega Y}}{\Top0}{\Grp^{\text{op}}}.
+ \]
+\end{itemize}
+\end{frame*}
+
+\subsection*{Osservazioni}
+\begin{frame*}
+\begin{itemize}
+\item Con la struttura di gruppo che abbiamo definito, l'uguaglianza
+\[
+\pi_n(X)=\hmaps{S^n,X}
+\]
+è un isomorfismo di gruppi.
+\item Le due strutture di gruppo su  $\hmaps{\Sigma X,\Omega Y}$ coincidono.
+\item $\Omega^2Y$ può essere interpretato come lo spazio delle funzioni
+\[
+\umap{[0,1]\times[0,1]}{Y}
+\]
+che assumono il valore $y_0$ sul bordo. Con lo stesso ragionamento usato per il $\pi_2$, si dimostra che $\hmaps{X,\Omega^2Y}$ è abeliano.
+\end{itemize}
+\end{frame*}
+
+\subsection*{Aggiunzione}
+\begin{frame*}
+\begin{proposition}
+I funtori $\Sigma$ e $\Omega$ sono aggiunti. In altre parole, esistono biiezioni
+\[
+\umap[\iso]{\hmaps{\Sigma X,Y}}{\hmaps{X,\Omega Y}}
+\]
+naturali in $X$ e $Y$. Inoltre queste biiezioni sono isomorfismi di gruppi.
+\end{proposition}
+\begin{itemize}
+\item Prendendo $X=S^{n-1}$, otteniamo che
+\[
+\pi_n(X)=\hmaps{S^n,X}=\hmaps{\Sigma S^{n-1},X}\iso\hmaps{S^{n-1},\Omega X}=\pi_{n-1}(\Omega X).
+\]
+\item In particolare, se $X$ è un $K(G,n)$, allora $\Omega X$ è un $K(G,n-1)$.
+\item Per ogni $n\ge 1$, sia $K_n$ un CW-complesso che è anche un $K(G,n)$; per unicità dei $K(G,n)$, abbiamo equivalenze omotopiche deboli
+\[
+\map{\theta_n}{K_n}{\Omega K_{n+1}}.
+\]
+\end{itemize}
+\end{frame*}

@@ -1,4 +1,46 @@
 \section*{\texorpdfstring{$\Omega$}{Omega}-spettri e coomologia}
+
+\subsection*{Definizione}
+\begin{frame*}
+\begin{definition}
+Un \emph{$\Omega$-spettro} è una famiglia di CW-complessi $\{K_n\}_{n\ge 1}$ dotata di equivalenze omotopiche deboli
+\[
+\map{\theta_n}{K_n}{\Omega K_{n+1}}.
+\]
+\end{definition}
+\begin{itemize}
+\item È possibile estendere la famiglia anche a indici $n\le 0$: è sufficiente considerare come $K_{n-1}$ un'approssimazione CW di $\Omega K_n$.
+\end{itemize}
+\begin{proposition}
+Siano $\map{f}{Y}{Z}$ un'equivalenza omotopica debole, $X$ un CW-complesso. Allora la composizione
+\[
+\map[\iso]{f\circ-{}}{\hmaps{X,Y}}{\hmaps{X,Z}}
+\]
+è una biiezione.
+\end{proposition}
+\end{frame*}
+
+\subsection*{Struttura di gruppo}
+\begin{frame*}
+D'ora in poi, tutti gli spazi di cui parleremo saranno CW-complessi puntati.
+\begin{itemize}
+\item Possiamo dare a $\hmaps{X,K_n}$ una struttura di gruppo imponendo che
+\[
+\map[\iso]{\theta_n\circ-{}}{\hmaps{X,K_n}}{\hmaps{X,\Omega K_{n+1}}}
+\]
+sia un isomorfismo di gruppi.
+\item In questo modo, $\hmaps{X,K_n}$ risulta essere un gruppo abeliano:
+\begin{diagram}[column sep=huge]
+\&\hmaps{\Sigma X,K_{n+1}}\rar["\iso"']{\theta_{n+1}\circ-}\dar{\iso}\&\hmaps{\Sigma X,\Omega K_{n+2}}\dar{\iso}\\
+\hmaps{X,K_n}\rar["\iso"']{\theta_n\circ-}\&\hmaps{X,\Omega K_{n+1}}\rar{\Omega\theta_{n+1}\circ-}\&\hmaps{X,\Omega^2 K_{n+2}}\nospacepunct{.}
+\end{diagram}
+\item Di conseguenza, per ogni $n\in\ZZ$ otteniamo il funtore
+\[
+\map{\hmaps{-,K_n}}{\CW0}{\Ab^{\text{op}}}.
+\]
+\end{itemize}
+\end{frame*}
+
 \subsection*{Teorie coomologiche}
 \begin{frame*}
 \begin{theorem}
@@ -62,12 +104,12 @@ Applicando il funtore $h^n$, otteniamo una successione di gruppi abeliani:
 \hmaps{A,K_n}\&\hmaps{X,K_n}\lar\&\hmaps{X/A,K_n}\lar\&\hmaps{\Sigma A,K_n}\lar\&\hmaps{\Sigma X,K_n}\lar.
 \end{diagram}
 
-\begin{onlyenv}<2>
+\begin{onlyenv}<1-2>
 Per verificarne l'esattezza, è sufficiente mostrare che
 \begin{diagram}
 \hmaps{A,K_n}\&\hmaps{X,K_n}\lar\&\hmaps{X\cup\cone{A},K_n}\lar
 \end{diagram}
-è esatta. Sia $\map{f}{X}{K}$. Allora
+è esatta.\end{onlyenv} \begin{onlyenv}<2>Sia $\map{f}{X}{K_n}$. Allora
 \begingroup
 \addtolength\jot{.15em}
 \begin{align*}
