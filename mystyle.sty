@@ -3,6 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 
+\usepackage{comment}
+
 % Beamer
 \setbeamertemplate{navigation symbols}{}
 \usecolortheme{seahorse}
@@ -11,6 +13,7 @@
 \renewenvironment{definition}{\begin{block}{Definizione}}{\end{block}}
 \newenvironment{proposition}{\begin{block}{Proposizione}}{\end{block}}
 \renewenvironment{example}{\begin{block}{Esempio}}{\end{block}}
+\newenvironment{reminder}{\begin{block}{Richiamo}}{\end{block}}
 
 % Math packages
 \usepackage{amsmath}
@@ -20,6 +23,8 @@
 % Graphics
 \usepackage{tikz}
 \usepackage{tikz-cd}
+\newenvironment*{diagram}[1][]{\begin{equation*}\begin{tikzcd}[ampersand replacement=\&,#1]}{\end{tikzcd}\end{equation*}\ignorespacesafterend}
+\newcommand{\nospacepunct}[1]{\makebox[0pt][l]{\,#1}}
 
 % Relations
 \newcommand*{\subs}{\subseteq}
@@ -42,10 +47,15 @@
     \end{align*}
 }
 
+% Mathbb
+\newcommand*{\ZZ}{\mathbb{Z}}
+
 % Aliases
 \newcommand*{\hmaps}[1]{\left\langle #1\right\rangle}
 \def\til{\widetilde}
+\def\cone{\mathcal{C}}
 \def\CW0{\textbf{CW$_\bullet$}}
+\def\Ab{\textbf{Ab}}
 
 % DeclareMathOperator
 \DeclareMathOperator{\Hom}{Hom}

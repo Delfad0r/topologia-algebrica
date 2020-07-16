@@ -1,0 +1,95 @@
+\section*{\texorpdfstring{$\Omega$}{Omega}-spettri e coomologia}
+\subsection*{Teorie coomologiche}
+\begin{frame*}
+\begin{theorem}
+Sia $\{K_n\}_{n\in\ZZ}$ un $\Omega$-spettro. Allora i funtori $h^n=\hmaps{-,K_n}$ definiscono una teoria coomologica ridotta sulla categoria \CW0.
+\end{theorem}
+\begin{reminder}
+Una \emph{teoria coomologica ridotta} sulla categoria \CW0 è una famiglia di funtori
+\begin{align*}
+\map{h^n}{\CW0}{\Ab^{\text{op}}},&&n\in\ZZ
+\end{align*}
+che soddisfa i seguenti assiomi.
+\begin{enumerate}
+\item Per ogni coppia $(X,A)$ con $x_0\in A$ esiste una successione esatta lunga
+\begin{diagram}[column sep=small]
+\ldots\rar{\delta}\&h^n(X/A)\rar{q^*}\&h^n(X)\rar{i^*}\&h^n(A)\rar{\delta}\&h^{n+1}(X/A)\rar{q^*}\&\ldots
+\end{diagram}
+naturale nella coppia $(X,A)$.
+\item\label{cohomology-axiom-wedge} Per ogni famiglia $\{X_\alpha\}_{\alpha}$, le inclusioni inducono un isomorfismo
+\[
+\umap{h^n\left(\textstyle\bigvee_\alpha X_\alpha\right)}{\textstyle\prod_\alpha h^n(X_\alpha)}.
+\]
+\end{enumerate}
+\end{reminder}
+\end{frame*}
+
+\subsection*{Dimostrazione}
+\begin{frame*}
+\begin{itemize}
+\item Per ogni $\map{f}{X}{Y}$,
+\[
+\map{h^n(f)=(-\circ f)}{\hmaps{Y,K_n}}{\hmaps{X,K_n}}
+\]
+è un omomorfismo di gruppi:
+\begin{diagram}
+\hmaps{Y,K_n}\rar{-\circ f}\dar{\iso}\&\hmaps{X,K_n}\dar{\iso}\\
+\hmaps{Y,\Omega K_{n+1}}\rar{-\circ f}\&\hmaps{X,\Omega K_{n+1}}\nospacepunct{.}
+\end{diagram}
+\item L'assioma \ref{cohomology-axiom-wedge}. è soddisfatto: nella categoria \CW0 un morfismo
+\[
+\umap{{\textstyle\bigvee_\alpha X_\alpha}}{K_n}
+\]
+è precisamente una collezione di morfismi
+\[
+\{\umap{X_\alpha}{K_n}\}_\alpha.
+\]
+\end{itemize}
+\end{frame*}
+
+\begin{frame*}
+\begin{onlyenv}<1>
+Costruiamo la successione esatta lunga associata a una coppia $(X,A)$.
+\begin{diagram}[column sep=11pt]
+A\rar[hook]\dar[equal]\&X\rar[hook]\dar[equal]\&X\cup\cone{A}\rar[hook]\dar{\iso}\&(X\cup\cone{A})\cup\cone{X}\rar[hook]\dar{\iso}\&\big((X\cup\cone{A})\cup\cone{X}\big)\cup\cone(X\cup\cone{A})\dar{\iso}\\
+A\rar[hook]\dar\&X\rar\dar\&X/A\rar\dar\&\Sigma A\rar[hook]\dar\&\Sigma X\dar\\
+B\rar[hook]\&Y\rar\&Y/B\rar\&\Sigma B\rar[hook]\&\Sigma Y
+\end{diagram}
+\end{onlyenv}
+
+Applicando il funtore $h^n$, otteniamo una successione di gruppi abeliani:
+\begin{diagram}
+\hmaps{A,K_n}\&\hmaps{X,K_n}\lar\&\hmaps{X/A,K_n}\lar\&\hmaps{\Sigma A,K_n}\lar\&\hmaps{\Sigma X,K_n}\lar.
+\end{diagram}
+
+\begin{onlyenv}<2>
+Per verificarne l'esattezza, è sufficiente mostrare che
+\begin{diagram}
+\hmaps{A,K_n}\&\hmaps{X,K_n}\lar\&\hmaps{X\cup\cone{A},K_n}\lar
+\end{diagram}
+è esatta. Sia $\map{f}{X}{K}$. Allora
+\begingroup
+\addtolength\jot{.15em}
+\begin{align*}
+&\text{$f$ appartiene al nucleo di $\umap{\hmaps{X,K_n}}{\hmaps{A,K_n}}$}\\
+\iff&\text{$f|_A$ è omotopicamente banale (fissando il punto base)}\\
+\iff&\text{$f$ si estende a una mappa $\umap{X\cup\cone{A}}{K_n}$}\\
+\iff&\text{$f$ appartiene all'immagine di $\umap{\hmaps{X\cup\cone{A},K_n}}{\hmaps{X,K_n}}$}.
+\end{align*}
+\endgroup
+\end{onlyenv}
+
+\begin{onlyenv}<3>
+Tale successione è esatta. Posto $K=K_n$, $K'=K_{n+1}$, le due successioni ottenute si possono incollare.
+\begin{diagram}[column sep=10pt]
+\&\&\hmaps{A,K}\dar{\iso}\&\hmaps{X,K}\lar\dar{\iso}\&\hmaps{X/A,K}\lar\&\hmaps{\Sigma A,K}\lar\\
+\&\&\hmaps{A,K'}\dar{\iso}\&\hmaps{X,K'}\lar\dar{\iso}\\
+\hmaps{X,K'}\&\hmaps{X/A,K'}\lar\&\hmaps{\Sigma A,K'}\lar\&\hmaps{\Sigma X,K'}\lar
+\end{diagram}
+Otteniamo così la successione esatta lunga
+\begin{diagram}[column sep=small]
+\ldots\&\hmaps{X/A,K_{n+1}}\lar\&\hmaps{A,K_n}\lar\&\hmaps{X,K_n}\lar\&\hmaps{X/A,K_n}\lar\&\ldots\lar
+\end{diagram}
+naturale in $(X,A)$.
+\end{onlyenv}
+\end{frame*}
