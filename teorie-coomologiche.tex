@@ -1,0 +1,68 @@
+\section*{Teorie coomologiche}
+
+\subsection*{Enunciato}
+\begin{frame*}
+\begin{theorem}
+Siano $h^*$, $\bar{h}^*$ teorie coomologiche ridotte sulla categoria \CW0 tali che
+\[
+\begin{dcases*}
+h^n(S^0)=\bar{h}^n(S^0)=0&per $n\neq 0$,\\
+h^0(S^0)\iso \bar{h}^0(S^0)=G.
+\end{dcases*}
+\]
+Allora per ogni $n\in\ZZ$ i funtori $h^n$ e $\bar{h}^n$ sono isomorfi.
+\end{theorem}
+\begin{remark}
+Se $h$ è una teoria coomologica ridotta, è facile verificare che esiste un isomorfismo di funtori
+\[
+\map{h^n\iso h^{n+1}\circ\Sigma}{\CW0}{\Ab^{\text{op}}.}
+\]
+Di conseguenza possiamo limitarci a considerare CW complessi senza $1$-celle (infatti $\Sigma^2X$ ha una struttura di CW complesso senza $1$-celle).
+\end{remark}
+\end{frame*}
+
+\subsection*{Dimostrazione}
+\begin{frame*}
+\begin{itemize}
+\item La coomologia di $S^n$ è banale in ogni dimensione, tranne per
+\[
+h^n(S^n)=G.
+\]
+\item Sia $X$ un CW-complesso. Componendo le mappe
+\begin{diagram}
+h^n(X^n/X^{n-1})\rar\& h^n(X^n)\rar\&h^{n+1}(X^{n+1}/X^n)
+\end{diagram}
+si ottengono le applicazioni di bordo di un complesso ``cellulare''
+\begin{diagram}[column sep=small]
+\ldots\rar\&h^{n-1}(X^{n-1}/X^{n-2})\rar\&h^n(X^n/X^{n-1})\rar\&h^{n+1}(X^{n+1}/X^n)\rar\&\ldots,
+\end{diagram}
+il cui $n$-esimo gruppo di coomologia è precisamente $h^n(X)$.
+\item Le mappe caratteristiche
+\[
+\map{\varphi_\alpha}{(D^n_\alpha,\partial D^n_\alpha)}{(X^n,X^{n-1})}
+\]
+inducono isomorfismi
+\[
+\umap[\iso]{h^n(X^n/X^{n-1})}{\textstyle\prod_\alpha h^n(D^n_\alpha/\partial D^n_\alpha)\iso\prod_\alpha G_\alpha.}
+\]
+\end{itemize}
+\end{frame*}
+
+\begin{frame*}
+Dunque i gruppi del complesso cellulare non dipendono da $h^*$. Calcoliamo ora le applicazioni di bordo.
+
+La mappa $\umap{G_\alpha}{G_\beta}$ data dalla composizione
+\begin{diagram}[column sep=small]
+G_\alpha\rar\dar[dash]{\iso}\&{\textstyle\prod_\alpha G_\alpha}\rar\dar[dash]{\iso}\&{\textstyle\prod_\beta G_\beta}\rar\dar[dash]{\iso}\&G_\beta\dar[dash]{\iso}\\
+h^n(D^n_\alpha/\partial D^n_\alpha)\rar\&h^n(X^n/X^{n-1})\rar\&h^{n+1}(X^{n+1}/X^n)\rar\&h^{n+1}(D^{n+1}_\beta/\partial D^{n+1}_\beta)\dar[dash]{\iso}\\
+\&\&\&h^n(\partial D^{n+1}_\beta)
+\end{diagram}
+è indotta dall'applicazione continua
+\begin{diagram}
+S^n\iso\partial D^{n+1}_\beta\rar[hook]\&X^n\rar\&D^n_\alpha/\partial D^n_\alpha\iso S^n.
+\end{diagram}
+\end{frame*}
+
+\begin{frame}
+content...
+\end{frame}
