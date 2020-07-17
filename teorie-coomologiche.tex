@@ -3,7 +3,7 @@
 \subsection*{Enunciato}
 \begin{frame*}
 \begin{theorem}
-Siano $h^*$, $\bar{h}^*$ teorie coomologiche ridotte sulla categoria \CW0 tali che
+Siano $h^*,\bar{h}^*$ teorie coomologiche ridotte sulla categoria \CW0 tali che
 \[
 \begin{dcases*}
 h^n(S^0)=\bar{h}^n(S^0)=0&per $n\neq 0$,\\
@@ -33,7 +33,7 @@ h^n(S^n)=G.
 h^n(X^n/X^{n-1})\rar\& h^n(X^n)\rar\&h^{n+1}(X^{n+1}/X^n)
 \end{diagram}
 si ottengono le applicazioni di bordo di un complesso ``cellulare''
-\begin{diagram}[column sep=small]
+\begin{diagram}[column sep=10pt]
 \ldots\rar\&h^{n-1}(X^{n-1}/X^{n-2})\rar\&h^n(X^n/X^{n-1})\rar\&h^{n+1}(X^{n+1}/X^n)\rar\&\ldots,
 \end{diagram}
 il cui $n$-esimo gruppo di coomologia è precisamente $h^n(X)$.
@@ -49,20 +49,56 @@ inducono isomorfismi
 \end{frame*}
 
 \begin{frame*}
-Dunque i gruppi del complesso cellulare non dipendono da $h^*$. Calcoliamo ora le applicazioni di bordo.
-
-La mappa $\umap{G_\alpha}{G_\beta}$ data dalla composizione
-\begin{diagram}[column sep=small]
-G_\alpha\rar\dar[dash]{\iso}\&{\textstyle\prod_\alpha G_\alpha}\rar\dar[dash]{\iso}\&{\textstyle\prod_\beta G_\beta}\rar\dar[dash]{\iso}\&G_\beta\dar[dash]{\iso}\\
+Dunque il complesso cellulare è della forma
+\begin{diagram}[column sep=10pt]
+\ldots\rar\&{\textstyle\prod_{\bar\alpha} G_{\bar\alpha}}\rar\ar[dd,dash,"\iso"]\&{\textstyle\prod_{\bar\beta} G_{\bar\beta}}\ar[dd,dash,"\iso"]\rar\ar[rd]\&\ldots\\
+G_\alpha\ar[ru]\dar[dash]{\iso}\&\&\&G_\beta\dar[dash]{\iso}\\
 h^n(D^n_\alpha/\partial D^n_\alpha)\rar\&h^n(X^n/X^{n-1})\rar\&h^{n+1}(X^{n+1}/X^n)\rar\&h^{n+1}(D^{n+1}_\beta/\partial D^{n+1}_\beta)\dar[dash]{\iso}\\
-\&\&\&h^n(\partial D^{n+1}_\beta)
+\&\&\&h^n(\partial D^{n+1}_\beta)\nospacepunct{.}
 \end{diagram}
-è indotta dall'applicazione continua
+La mappa $\umap{G_\alpha}{G_\beta}$ è indotta dall'applicazione continua
 \begin{diagram}
-S^n\iso\partial D^{n+1}_\beta\rar[hook]\&X^n\rar\&D^n_\alpha/\partial D^n_\alpha\iso S^n.
+S^n\iso\partial D^{n+1}_\beta\rar\&X^n\rar\&D^n_\alpha/\partial D^n_\alpha\iso S^n.
 \end{diagram}
 \end{frame*}
 
-\begin{frame}
-content...
-\end{frame}
+\begin{frame*}
+Mostriamo ora che l'applicazione 
+\[
+\map{f^*}{h^n(S^n)}{h^n(S^n)}
+\]
+indotta in coomologia da una funzione continua
+\[
+\map{f}{S^n}{S^n}
+\]
+è la moltiplicazione per il grado di $f$.
+\begin{itemize}
+\item Sappiamo che due mappe $\umap{S^n}{S^n}$ sono omotope se e solo se hanno lo stesso grado.
+\item L'enunciato è vero per $\deg(f)=0,1$ (funzione costante e identità).
+\item È sufficiente mostrare che $(f\cdot g)^*=f^*+g^*$.
+\end{itemize}
+\begin{lemma}
+Siano $X,Y$ CW complessi, $f,g\in\hmaps{\Sigma X,Y}$. Allora
+\[
+(f\cdot g)^*=f^*+g^*.
+\]
+\end{lemma}
+\end{frame*}
+
+\begin{frame*}
+Un omomorfismo
+\[
+\umap{{\textstyle\prod_{\bar\alpha}G_{\bar\alpha}}}{{\textstyle\prod_{\bar\beta}G_{\bar\beta}}}
+\]
+non è determinato dai valori che assume sui singoli fattori $G_{\bar\alpha}$. Tuttavia per ogni $\beta$ la composizione
+\begin{diagram}
+{\textstyle\prod_{\bar\alpha}G_{\bar\alpha}}\rar\dar\&{\textstyle\prod_{\bar\beta}G_{\bar\beta}}\rar\&G_\beta\iso h^n(\partial D^{n+1}_\beta)\\
+{\textstyle\prod_{\bar\gamma}G_{\bar\gamma}}\ar[urr]
+\end{diagram}
+è indotta da
+\begin{diagram}
+X^n/X^{n-1}\&X^n\lar\&\partial D^{n+1}_\beta\lar\ar[dl]\\
+X^n_\beta/X^{n-1}\uar[hook]\&X^n_\beta\lar\uar[hook],
+\end{diagram}
+dove $X^n_\beta$ si ottiene attaccando a $X^{n-1}$ le $n$-celle che intersecano l'immagine di $\partial D^{n+1}_\beta$ (sono in numero finito).
+\end{frame*}
