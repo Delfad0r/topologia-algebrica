@@ -53,7 +53,7 @@ Una \emph{teoria coomologica ridotta} sulla categoria \CW0 è una famiglia di fu
 \end{align*}
 che soddisfa i seguenti assiomi.
 \begin{enumerate}
-\item Per ogni coppia $(X,A)$ con $x_0\in A$ esiste una successione esatta lunga
+\item\label{cohomology-axiom-les} Per ogni coppia $(X,A)$ con $x_0\in A$ esiste una successione esatta lunga
 \begin{diagram}[column sep=small]
 \ldots\rar{\delta}\&h^n(X/A)\rar{q^*}\&h^n(X)\rar{i^*}\&h^n(A)\rar{\delta}\&h^{n+1}(X/A)\rar{q^*}\&\ldots
 \end{diagram}
@@ -69,29 +69,20 @@ naturale nella coppia $(X,A)$.
 \subsection*{Dimostrazione}
 \begin{frame*}
 \begin{itemize}
-\item [superfluo]Per ogni $\map{f}{X}{Y}$,
-\[
-\map{h^n(f)=(-\circ f)}{\hmaps{Y,K_n}}{\hmaps{X,K_n}}
-\]
-è un omomorfismo di gruppi:
-\begin{diagram}
-\hmaps{Y,K_n}\rar{-\circ f}\dar{\iso}\&\hmaps{X,K_n}\dar{\iso}\\
-\hmaps{Y,\Omega K_{n+1}}\rar{-\circ f}\&\hmaps{X,\Omega K_{n+1}}\nospacepunct{.}
-\end{diagram}
-\item L'assioma \ref{cohomology-axiom-wedge}. è soddisfatto: nella categoria \CW0 un morfismo
+\item L'assioma \ref{cohomology-axiom-wedge}. è soddisfatto: nella categoria \CW0 dare un morfismo
 \[
 \umap{{\textstyle\bigvee_\alpha X_\alpha}}{K_n}
 \]
-è precisamente una collezione di morfismi
+è equivalente a dare  una collezione di morfismi
 \[
 \{\umap{X_\alpha}{K_n}\}_\alpha.
 \]
+\item Per quanto riguarda l'assioma \ref{cohomology-axiom-les}., sia $(X,A)$ una coppia di CW-complessi; vediamo come costruire la successione esatta lunga associata.
 \end{itemize}
 \end{frame*}
 
 \begin{frame*}
 \begin{onlyenv}<1>
-Costruiamo la successione esatta lunga associata a una coppia $(X,A)$.
 \begin{diagram}[column sep=11pt]
 A\rar[hook]\dar[equal]\&X\rar[hook]\dar[equal]\&X\cup\cone{A}\rar[hook]\dar{\iso}\&(X\cup\cone{A})\cup\cone{X}\rar[hook]\dar{\iso}\&\big((X\cup\cone{A})\cup\cone{X}\big)\cup\cone(X\cup\cone{A})\dar{\iso}\\
 A\rar[hook]\dar\&X\rar\dar\&X/A\rar\dar\&\Sigma A\rar[hook]\dar\&\Sigma X\dar\\
@@ -125,7 +116,7 @@ Per verificarne l'esattezza, è sufficiente mostrare che
 Tale successione è esatta e naturale. Posto $K=K_n,K'=K_{n+1}$, le due successioni corrispondenti si possono incollare.
 \begin{diagram}[column sep=10pt]
 \&\&\hmaps{A,K}\dar{\iso}\&\hmaps{X,K}\lar\dar{\iso}\&\hmaps{X/A,K}\lar\&\hmaps{\Sigma A,K}\lar\\
-\&\&\hmaps{A,K'}\dar{\iso}\&\hmaps{X,K'}\lar\dar{\iso}\\
+\&\&\hmaps{A,\Omega K'}\dar{\iso}\&\hmaps{X,\Omega K'}\lar\dar{\iso}\\
 \hmaps{X,K'}\&\hmaps{X/A,K'}\lar\&\hmaps{\Sigma A,K'}\lar\&\hmaps{\Sigma X,K'}\lar
 \end{diagram}
 Otteniamo così la successione esatta lunga
