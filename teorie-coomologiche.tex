@@ -51,7 +51,7 @@ inducono isomorfismi
 \begin{frame*}
 Dunque il complesso cellulare è della forma
 \begin{diagram}[column sep=10pt]
-\ldots\rar\&{\textstyle\prod_{\bar\alpha} G_{\bar\alpha}}\rar\ar[dd,dash,"\iso"]\&{\textstyle\prod_{\bar\beta} G_{\bar\beta}}\ar[dd,dash,"\iso"]\rar\ar[rd]\&\ldots\\
+\ldots\rar\&{\textstyle\prod_\alpha G_\alpha}\rar\ar[dd,dash,"\iso"]\&{\textstyle\prod_\beta G_\beta}\ar[dd,dash,"\iso"]\rar\ar[rd]\&\ldots\\
 G_\alpha\ar[ru]\dar[dash]{\iso}\&\&\&G_\beta\dar[dash]{\iso}\\
 h^n(D^n_\alpha/\partial D^n_\alpha)\rar\&h^n(X^n/X^{n-1})\rar\&h^{n+1}(X^{n+1}/X^n)\rar\&h^{n+1}(D^{n+1}_\beta/\partial D^{n+1}_\beta)\dar[dash]{\iso}\\
 \&\&\&h^n(\partial D^{n+1}_\beta)\nospacepunct{.}
@@ -88,12 +88,12 @@ Siano $X,Y$ CW complessi, $f,g\in\hmaps{\Sigma X,Y}$. Allora
 \begin{frame*}
 Un omomorfismo
 \[
-\umap{{\textstyle\prod_{\bar\alpha}G_{\bar\alpha}}}{{\textstyle\prod_{\bar\beta}G_{\bar\beta}}}
+\umap{{\textstyle\prod_\alpha G_\alpha}}{{\textstyle\prod_\beta G_\beta}}
 \]
-non è determinato dai valori che assume sui singoli fattori $G_{\bar\alpha}$. Tuttavia per ogni $\beta$ la composizione
+non è determinato dai valori che assume sui singoli fattori $G_\alpha$. Tuttavia per ogni $\beta$ la composizione
 \begin{diagram}
-{\textstyle\prod_{\bar\alpha}G_{\bar\alpha}}\rar\dar\&{\textstyle\prod_{\bar\beta}G_{\bar\beta}}\rar\&G_\beta\iso h^n(\partial D^{n+1}_\beta)\\
-{\textstyle\prod_{\bar\gamma}G_{\bar\gamma}}\ar[urr]
+{\textstyle\prod_\alpha G_\alpha}\rar\dar\&{\textstyle\prod_\beta G_\beta}\rar\&G_\beta\iso h^n(\partial D^{n+1}_\beta)\\
+{\textstyle\prod_\gamma G_\gamma}\ar[urr]
 \end{diagram}
 è indotta da
 \begin{diagram}
@@ -101,4 +101,44 @@ X^n/X^{n-1}\&X^n\lar\&\partial D^{n+1}_\beta\lar\ar[dl]\\
 X^n_\beta/X^{n-1}\uar[hook]\&X^n_\beta\lar\uar[hook],
 \end{diagram}
 dove $X^n_\beta$ si ottiene attaccando a $X^{n-1}$ le $n$-celle che intersecano l'immagine di $\partial D^{n+1}_\beta$ (sono in numero finito).
+\end{frame*}
+
+\begin{frame*}
+Riassumendo:
+\begin{itemize}
+\item possiamo calcolare i gruppi $h^n(X)$ a partire dal complesso cellulare
+\begin{diagram}
+\ldots\rar\&{\textstyle\prod_\alpha G_\alpha}\rar\&{\textstyle\prod_\beta G_\beta}\rar\&\ldots;
+\end{diagram}
+\item i gruppi di questo complesso dipendono solo dalla struttura di CW-complesso di $X$;
+\item le mappe di bordo sono determinate dal grado di certe funzioni continue
+\[
+\umap{\partial D^{n+1}_\beta}{D^n_\alpha/\partial D^n_\alpha}
+\]
+che dipendono dalle mappe caratteristiche delle celle.
+\end{itemize}
+Di conseguenza, teorie coomologiche diverse hanno lo stesso complesso cellulare, dunque per ogni $X$ abbiamo un isomorfismo
+\[
+h^n(X)\iso\bar{h}^n(X).
+\]
+\end{frame*}
+
+\begin{frame*}
+Per verificare la naturalità, sia $\map{f}{X}{Y}$, cellulare a meno di omotopia.
+\begin{itemize}
+\item Vale $f(X^n)\subs Y^n$, dunque $f$ induce un morfismo fra i complessi cellulari
+\begin{diagram}
+\ldots\rar\&h^n(Y^n/Y^{n-1})\rar\dar{f^*}\&h^{n+1}(Y^{n+1}/Y^n)\rar\dar{f^*}\&\ldots\\
+\ldots\rar\&h^n(X^n/X^{n-1})\rar\&h^{n+1}(X^{n+1}/X^n)\rar\&\ldots
+\end{diagram}
+\item Come accadeva per le mappe di bordo, i morfismi $f^*$ sono determinati dal grado delle applicazioni
+\begin{diagram}
+D^n_\alpha/\partial D^n_\alpha\rar\&X^n/X^{n-1}\rar{f}\&Y^n/Y^{n-1}\rar\&D^n_\beta/\partial D^n_\beta.
+\end{diagram}
+\end{itemize}
+Di conseguenza, a meno dell'isomorfismo che abbiamo stabilito fra i complessi cellulari di $h^*$ e $\bar{h}^*$, $f$ induce lo stesso morfismo di complessi nelle due teorie coomologiche. Pertanto l'isomorfismo
+\[
+h^n(X)\iso\bar{h}^n(X)
+\]
+è naturale in $X$.
 \end{frame*}

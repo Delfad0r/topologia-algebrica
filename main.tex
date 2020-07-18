@@ -3,9 +3,7 @@
 
 \begin{document}
 
-\section*{Costruzione omotopica della coomologia}
-\subsection*{Enunciato}
-\begin{frame*}
+\newcommand*{\statemainresult}{%
 \begin{theorem}
 Siano $X$ un CW-complesso, $G$ un gruppo abeliano, $n\ge 0$ un intero. Allora esiste una biiezione
 \[
@@ -13,11 +11,16 @@ Siano $X$ un CW-complesso, $G$ un gruppo abeliano, $n\ge 0$ un intero. Allora es
 \]
 naturale in $X$.
 \end{theorem}
+}
+\section*{Costruzione omotopica della coomologia}
+\subsection*{Enunciato}
+\begin{frame*}
+\statemainresult
 \begin{itemize}
 \item Esiste una struttura canonica di gruppo abeliano su $\hmaps{X,K(G,n)}$ che rende $T$ un isomorfismo di gruppi.
 \item $T$ è della forma
 \[
-T([f])=f^*(\alpha)
+T(f)=f^*(\alpha)
 \]
 dove $\alpha$ è la ``classe fondamentale'' di $H^n(K(G,n);G)$.
 \end{itemize}
@@ -36,4 +39,54 @@ dove $\alpha$ è la ``classe fondamentale'' di $H^n(K(G,n);G)$.
 \include{aggiunzione-sigma-omega}
 \include{omega-spettri}
 \include{teorie-coomologiche}
+
+\section*{Costruzione omotopica della coomologia}
+\subsection*{Dimostrazione}
+\begin{frame*}
+\statemainresult
+\begin{itemize}
+\item Poniamo $K_n=K(G,n)$; sappiamo che è un $\Omega$-spettro.
+\item Estendendo la successione a $n\le 0$, otteniamo la famiglia di funtori
+\[
+\map{h^n=\hmaps{-,K_n}}{\CW0}{\Ab^{\text{op}}}
+\]
+che definisce una teoria coomologica ridotta.
+\item Vale
+\[
+h^n(S^0)=\til{H}^n(S^0;G)=\begin{dcases}0&n\neq0,\\G&n=0.\end{dcases}
+\]
+\item Di conseguenza, per ogni $n$ abbiamo un isomorfismo di funtori
+\[
+h^n\iso\til{H}^n(-;G).
+\]
+\end{itemize}
+\end{frame*}
+
+\subsection*{Classe fondamentale}
+\begin{frame*}
+Per il lemma di Yoneda, l'isomorfismo
+\[
+\map[\iso]{T}{\hmaps{X,K(G,n)}}{\til{H}^n(X;G)}
+\]
+è della forma
+\[
+T(f)=f^*(\alpha)\in\til{H}^n(X;G)
+\]
+dove
+\[
+\alpha=T(\id_{K(G,n)})\in\til{H}^n(K(G,n);G).
+\]
+\begin{itemize}
+\item Se prendiamo $K(G,n)$ in modo che abbia come $(n-1)$-scheletro un punto, $\alpha$ è rappresentata dal cociclo cellulare che a ogni $n$-cella associa l'elemento
+\[
+[\map{\varphi_\alpha}{D^n_\alpha/\partial D^n_\alpha}{K(G,n)}]\in\pi_n(K(G,n))\iso G
+\]
+indotto dalla mappa caratteristica.
+\item Analogamente, per ogni $\map{f}{X}{K(G,n)}$, $T(f)$ è rappresentato in coomologia dal cociclo cellulare che a ogni $n$-cella di $X$ associa l'elemento di $\pi_n(K(G,n))$ indotto dalla composizione
+\begin{diagram}
+D^n_\alpha/\partial D^n_\alpha\rar{\varphi_\alpha}\&X^n/X^{n-1}\rar{f}\&K(G,n).
+\end{diagram}
+\end{itemize}
+\end{frame*}
+
 \end{document}
