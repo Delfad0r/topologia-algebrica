@@ -51,9 +51,9 @@ inducono isomorfismi
 \begin{frame*}
 Dunque il complesso cellulare è della forma
 \begin{diagram}[column sep=10pt]
-\ldots\rar\&{\textstyle\prod_\alpha G_\alpha}\rar\ar[dd,dash,"\iso"]\&{\textstyle\prod_\beta G_\beta}\ar[dd,dash,"\iso"]\rar\ar[rd]\&\ldots\\
+\ldots\rar\&{\textstyle\prod_\alpha G_\alpha}\rar{d}\ar[dd,dash,"\iso"]\&{\textstyle\prod_\beta G_\beta}\ar[dd,dash,"\iso"]\rar\ar[rd]\&\ldots\\
 G_\alpha\ar[ru]\dar[dash]{\iso}\&\&\&G_\beta\dar[dash]{\iso}\\
-h^n(D^n_\alpha/\partial D^n_\alpha)\rar\&h^n(X^n/X^{n-1})\rar\&h^{n+1}(X^{n+1}/X^n)\rar\&h^{n+1}(D^{n+1}_\beta/\partial D^{n+1}_\beta)\dar[dash]{\iso}\\
+h^n(D^n_\alpha/\partial D^n_\alpha)\rar\&h^n(X^n/X^{n-1})\rar{d}\&h^{n+1}(X^{n+1}/X^n)\rar\&h^{n+1}(D^{n+1}_\beta/\partial D^{n+1}_\beta)\dar[dash]{\iso}\\
 \&\&\&h^n(\partial D^{n+1}_\beta)\nospacepunct{.}
 \end{diagram}
 La mappa $\umap{G_\alpha}{G_\beta}$ è indotta dall'applicazione continua
@@ -75,7 +75,7 @@ indotta in coomologia da una funzione continua
 \begin{itemize}
 \item Sappiamo che due mappe $\umap{S^n}{S^n}$ sono omotope se e solo se hanno lo stesso grado.
 \item L'enunciato è vero per $\deg(f)=0,1$ (funzione costante e identità).
-\item È sufficiente mostrare che $(f\cdot g)^*=f^*+g^*$.
+\item È sufficiente mostrare che $(f+g)^*=f^*+g^*$.
 \end{itemize}
 \begin{lemma}
 Siano $X,Y$ CW complessi, $f,g\in\hmaps{\Sigma X,Y}$. Allora
@@ -88,11 +88,11 @@ Siano $X,Y$ CW complessi, $f,g\in\hmaps{\Sigma X,Y}$. Allora
 \begin{frame*}
 Un omomorfismo
 \[
-\umap{{\textstyle\prod_\alpha G_\alpha}}{{\textstyle\prod_\beta G_\beta}}
+\umap[d]{{\textstyle\prod_\alpha G_\alpha}}{{\textstyle\prod_\beta G_\beta}}
 \]
 non è determinato dai valori che assume sui singoli fattori $G_\alpha$. Tuttavia per ogni $\beta$ la composizione
 \begin{diagram}
-{\textstyle\prod_\alpha G_\alpha}\rar\dar\&{\textstyle\prod_\beta G_\beta}\rar\&G_\beta\iso h^n(\partial D^{n+1}_\beta)\\
+{\textstyle\prod_\alpha G_\alpha}\rar{d}\dar\&{\textstyle\prod_\beta G_\beta}\rar\&G_\beta\iso h^n(\partial D^{n+1}_\beta)\\
 {\textstyle\prod_\gamma G_\gamma}\ar[urr]
 \end{diagram}
 è indotta da

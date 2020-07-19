@@ -55,43 +55,84 @@ $\map{f}{Z}{X}$.
 \begin{align*}
 SX=X\times[0,1]/\!\sim,&&\text{$X\times\{0\}$ e $X\times\{1\}$ collassati a due punti.}
 \end{align*}
-\item Per uno spazio puntato $(X,x_0)$, è conveniente considerare la sospensione ridotta
+\item<3-> Per uno spazio puntato $(X,x_0)$, è conveniente considerare la sospensione ridotta
 \begin{align*}
 \Sigma X=SX/\{x_0\}\times[0,1],&&\text{con punto base $[x_0]$.}
 \end{align*}
-\item Ogni $f\in\hmaps{X,Y}$ induce $\Sigma f\in\hmaps{\Sigma X,\Sigma Y}$:
+\item<4-> Ogni $f\in\hmaps{X,Y}$ induce $\Sigma f\in\hmaps{\Sigma X,\Sigma Y}$:
 \[
 \Sigma f(x,t)=(f(x),t).
 \]
-\item La sospensione ridotta è dunque un funtore
+\only<5->{\item La sospensione ridotta è dunque un funtore
 \[
 \map{\Sigma}{\Top0}{\Top0}
 \]
 che si restringe a
 \[
 \map{\Sigma}{\CW0}{\CW0}.
-\]
+\]}
 \end{itemize}
+\begin{onlyenv}<-4>
+\vspace{-.6cm}
+\begin{center}
+\begin{tikzpicture}[framed]
+\def\h{1.2}
+\def\st{1/20}
+\def\base{circle (1 and .2)}
+\def\poslist{.5/.5,0/1,-.5/.5}
+% <1>
+\begin{onlyenv}<1>
+\node[left,inner sep=10pt] at (-1,0) {$X\times[0,1]$};
+\foreach \p/\s in {1/1,.5/.5,0/1,-.5/.5,-1/1} {\draw[yshift=\h*\p cm,opacity=\s] \base;}
+\path[decorate,decoration={markings,mark=between positions .5 and 1 step \st with {\coordinate (a-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number});}}] \base;
+\foreach \i in {1,...,11} {\draw[shift=(a-\i),opacity=.5] (0,-\h) -- (0,\h);}
+\end{onlyenv}
+\begin{onlyenv}<2->
+\node[left,inner sep=10pt] at (-1,0) {$\alt<2>{SX}{\Sigma X}$};
+\foreach \p/\s in \poslist {\draw[yshift=\h*\p cm,opacity=\s,scale=\s] \base;}
+\path[suspension={apex={(0,\h)},apex style={alt={<3->{fill=blue}{fill=black}}},step=\st,between=.5 and 1,highlight=at -.15 with {thick,blue,onslide=<3->}}]\base;
+\end{onlyenv}
+\begin{onlyenv}<4->
+\draw (1.5,0) edge[->,"$\Sigma f$"] (3,0);
+\begin{scope}[xshift=4.5cm]
+\node[right,inner sep=10pt] at (1,0) {$\Sigma Y$};
+\foreach \p/\s in \poslist {\draw[yshift=\h*\p cm,opacity=\s,scale=\s] \base;}
+\path[suspension={apex={(0,\h)},apex style={alt={<3->{fill=blue}{fill=black}}},step=\st,between=.5 and 1,highlight=at -.15 with {thick,blue,onslide=<3->}}]\base;
+\end{scope}
+\end{onlyenv}
+\end{tikzpicture}
+\end{center}
+\end{onlyenv}
 \end{frame*}
 
 \begin{frame*}
+\begin{overlayarea}{\textwidth}{.825\textheight}
 Dati due spazi topologici puntati $X,Y$, esiste una struttura di gruppo canonica su $\hmaps{\Sigma X,Y}$.
 \begin{itemize}
-\item Per $f,g\in\hmaps{\Sigma X,Y}$, il prodotto $f\cdot g$ è così definito:
+\item<2-> Per $f,g\in\hmaps{\Sigma X,Y}$, il prodotto $f\cdot g$ è così definito:\visible<3->{
 \[
 f\cdot g(x,t)=\begin{dcases}f(x,2t)&t\le\frac{1}{2},\\g(x,2t-1)&t\ge\frac{1}{2}.\end{dcases}
-\]
+\]}\only<4->{
 \item Si verifica facilmente che questa operazione definisce una struttura di gruppo, avente la funzione costante come elemento neutro.
-\item Per ogni $\map{f}{Y}{Z}$, la composizione
+\item<5-> Per ogni $\map{f}{Y}{Z}$, la composizione
 \[
 \map{f\circ-{}}{\hmaps{\Sigma X,Y}}{\hmaps{\Sigma X,Z}}
 \]
  è un omomorfismo di gruppi.
- \item Di conseguenza, otteniamo il funtore
+ \item<6-> Di conseguenza, otteniamo il funtore
  \[
  \map{\hmaps{\Sigma X,-}}{\Top0}{\Grp}.
  \]
+ }
 \end{itemize}
+\begin{onlyenv}<2>
+\begin{center}
+\begin{tikzpicture}[framed]
+\draw circle (1);
+\end{tikzpicture}
+\end{center}
+\end{onlyenv}
+\end{overlayarea}
 \end{frame*}
 
 \subsection*{Spazio di lacci}
