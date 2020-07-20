@@ -78,7 +78,7 @@ che si restringe a
 \begin{tikzpicture}[framed]
 \def\h{1.2}
 \def\st{1/20}
-\def\base{circle (1 and .2)}
+\def\base{circle (1 and .25)}
 \def\poslist{.5/.5,0/1,-.5/.5}
 % <1>
 \begin{onlyenv}<1>
@@ -93,7 +93,7 @@ che si restringe a
 \path[suspension={apex={(0,\h)},apex style={alt={<3->{fill=blue}{fill=black}}},step=\st,between=.5 and 1,highlight=at -.15 with {thick,blue,onslide=<3->}}]\base;
 \end{onlyenv}
 \begin{onlyenv}<4->
-\draw (1.5,0) edge[->,"$\Sigma f$"] (3,0);
+\draw (1.5,0) edge[->,"\scriptsize$\Sigma f$"] (3,0);
 \begin{scope}[xshift=4.5cm]
 \node[right,inner sep=10pt] at (1,0) {$\Sigma Y$};
 \foreach \p/\s in \poslist {\draw[yshift=\h*\p cm,opacity=\s,scale=\s] \base;}
@@ -109,11 +109,11 @@ che si restringe a
 \begin{overlayarea}{\textwidth}{.825\textheight}
 Dati due spazi topologici puntati $X,Y$, esiste una struttura di gruppo canonica su $\hmaps{\Sigma X,Y}$.
 \begin{itemize}
-\item<2-> Per $f,g\in\hmaps{\Sigma X,Y}$, il prodotto $f\cdot g$ è così definito:\visible<3->{
+\item<2-> Per $f,g\in\hmaps{\Sigma X,Y}$, il prodotto $f\cdot g$ è così definito:\only<3->{
 \[
 f\cdot g(x,t)=\begin{dcases}f(x,2t)&t\le\frac{1}{2},\\g(x,2t-1)&t\ge\frac{1}{2}.\end{dcases}
-\]}\only<4->{
-\item Si verifica facilmente che questa operazione definisce una struttura di gruppo, avente la funzione costante come elemento neutro.
+\]
+\item<4-> Si verifica facilmente che questa operazione definisce una struttura di gruppo, avente la funzione costante come elemento neutro.
 \item<5-> Per ogni $\map{f}{Y}{Z}$, la composizione
 \[
 \map{f\circ-{}}{\hmaps{\Sigma X,Y}}{\hmaps{\Sigma X,Z}}
@@ -128,7 +128,15 @@ f\cdot g(x,t)=\begin{dcases}f(x,2t)&t\le\frac{1}{2},\\g(x,2t-1)&t\ge\frac{1}{2}.
 \begin{onlyenv}<2>
 \begin{center}
 \begin{tikzpicture}[framed]
-\draw circle (1);
+\def\h{1.2}
+\def\st{1/20}
+\def\base{circle (1 and .25)}
+\def\poslist{.5/.5,0/1,-.5/.5}
+\matrix[ampersand replacement=\&,row 1/.style={anchor=base,inner xsep=5pt},row sep=.4cm,column sep={3cm,between origins}]{
+\node (SX) {$\Sigma X$};\&\node (SXvSX) {$\Sigma X\vee\Sigma X$};\&\node (Y) {$Y$};\\
+\foreach \p/\s in {.5/.5,0/1,-.5/.5} {\draw[yshift=\h*\p cm,opacity=\s,scale=\s] \base;}\path[suspension={apex={(0,\h)},step=1/20,between=.5 and 1}] \base;\&\foreach \p in {.5,-.5} {\path[yshift=\h*\p cm,scale=.5,preaction={draw=black,opacity=.5},suspension={apex={(0,\h/2)},apex style={scale=2},step=1/20,between=.5 and 1}] \base;}\&\draw[rounded corners,decorate,decoration={random steps,segment length=.3cm,amplitude=.075cm,pre=lineto,pre length=.25cm,post=lineto,post length=.25cm}] circle (.6);\\
+};
+\draw[->] (SX) edge (SXvSX) (SXvSX) edge["\scriptsize$f\vee g$"] (Y);
 \end{tikzpicture}
 \end{center}
 \end{onlyenv}
