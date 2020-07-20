@@ -1,0 +1,45 @@
+\usetikzlibrary{decorations.markings,decorations.pathmorphing,math,calc,backgrounds,quotes}
+\tikzset{
+invisible/.style={opacity=0},
+onslide/.style={alt={#1{}{invisible}}},
+alt/.code args={<#1>#2#3}{
+\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}
+}
+}
+\tikzset{
+base cone/.style={
+postaction={decorate,
+decoration={markings,mark=between positions \conebetweenstart and \conebetweenend step \conestep with {\draw[/cone settings/do cone] (0,0) -- (apex);}}},
+postaction={decorate,decoration={markings,/cone settings/do highlight}},
+postaction={/utils/exec={\scoped[shift=(apex)]{{\path[/cone settings/do apex] circle (1pt);}}}}
+},
+cone/.style={/utils/exec={\tikzset{/cone settings,default,#1}\coordinate[shift={\coneapex}] (apex);},base cone},
+suspension/.style={
+cone={#1},
+postaction={
+/utils/exec={\tikzset{/cone settings,default,#1}\coordinate[yscale=-1,shift={\coneapex}] (apex);},
+base cone,
+}
+}
+}
+\tikzset{
+/cone settings/.is family,
+/cone settings,
+default/.style={
+	apex={(0,0)},
+	step=1/10,
+	apex style={fill=black},
+	between=0 and 1,
+	do cone/.style={opacity=.5},
+	do highlight/.style={},
+	do apex/.style={fill=black},
+},
+apex/.store in=\coneapex,
+step/.store in=\conestep,
+apex style/.code={\tikzset{/cone settings/do apex/.append style={#1}}},
+style/.code={\tikzset{/cone settings/do cone/.append style={#1}}},
+between/.code args={#1 and #2}{\tikzset{/cone settings,between start=#1,between end=#2}},
+between start/.store in=\conebetweenstart,
+between end/.store in=\conebetweenend,
+highlight/.code args={at #1 with #2}{\tikzset{/cone settings/do highlight/.append style={mark=at position #1 with {\draw[#2] (0,0) -- (apex);}}}},
+}
