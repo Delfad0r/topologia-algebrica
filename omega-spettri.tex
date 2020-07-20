@@ -8,10 +8,11 @@ Un \emph{$\Omega$-spettro} è una famiglia di CW-complessi $\{K_n\}_{n\ge 1}$ do
 \map{\theta_n}{K_n}{\Omega K_{n+1}}.
 \]
 \end{definition}
+\pause
 \begin{itemize}
-\item È possibile estendere la famiglia anche a indici $n\le 0$: è sufficiente considerare come $K_{n-1}$ un'approssimazione CW di $\Omega K_n$.
+\item<+-> È possibile estendere la famiglia anche a indici $n\le 0$: è sufficiente considerare come $K_{n-1}$ un'approssimazione CW di $\Omega K_n$.
 \end{itemize}
-\begin{proposition}
+\begin{proposition}<+->
 Siano $\map{f}{Y}{Z}$ un'equivalenza omotopica debole, $X$ un CW-complesso. Allora la composizione
 \[
 \map[\iso]{f\circ-{}}{\hmaps{X,Y}}{\hmaps{X,Z}}
@@ -22,8 +23,8 @@ Siano $\map{f}{Y}{Z}$ un'equivalenza omotopica debole, $X$ un CW-complesso. Allo
 
 \subsection*{Struttura di gruppo}
 \begin{frame*}
-D'ora in poi, tutti gli spazi di cui parleremo saranno CW-complessi puntati.
-\begin{itemize}
+D'ora in poi, tutti gli spazi di cui parleremo saranno CW-complessi puntati.\pause
+\begin{itemize}[<+->]
 \item Possiamo dare a $\hmaps{X,K_n}$ una struttura di gruppo imponendo che
 \[
 \map[\iso]{\theta_n\circ-{}}{\hmaps{X,K_n}}{\hmaps{X,\Omega K_{n+1}}}
@@ -45,19 +46,19 @@ sia un isomorfismo di gruppi.
 \begin{frame*}
 \begin{theorem}
 Sia $\{K_n\}_{n\in\ZZ}$ un $\Omega$-spettro. Allora i funtori $h^n=\hmaps{-,K_n}$ definiscono una teoria coomologica ridotta sulla categoria \CW0.
-\end{theorem}
-\begin{reminder}
+\end{theorem}\pause
+\begin{reminder}<+->
 Una \emph{teoria coomologica ridotta} sulla categoria \CW0 è una famiglia di funtori
 \begin{align*}
 \map{h^n}{\CW0}{\Ab^{\text{op}}},&&n\in\ZZ
 \end{align*}
 che soddisfa i seguenti assiomi.
-\begin{enumerate}
-\item\label{cohomology-axiom-les} Per ogni coppia $(X,A)$ con $x_0\in A$ esiste una successione esatta lunga
+\begin{enumerate}[<+->]
+\item\label{cohomology-axiom-les} Per ogni coppia $(X,A)$ esiste una successione esatta lunga
 \begin{diagram}[column sep=small]
 \ldots\rar{\delta}\&h^n(X/A)\rar{q^*}\&h^n(X)\rar{i^*}\&h^n(A)\rar{\delta}\&h^{n+1}(X/A)\rar{q^*}\&\ldots
 \end{diagram}
-naturale nella coppia $(X,A)$.
+naturale in $(X,A)$.
 \item\label{cohomology-axiom-wedge} Per ogni famiglia $\{X_\alpha\}_{\alpha}$, le inclusioni inducono un isomorfismo
 \[
 \umap[\iso]{h^n\left(\textstyle\bigvee_\alpha X_\alpha\right)}{\textstyle\prod_\alpha h^n(X_\alpha)}.
@@ -68,7 +69,7 @@ naturale nella coppia $(X,A)$.
 
 \subsection*{Dimostrazione}
 \begin{frame*}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item L'assioma \ref{cohomology-axiom-wedge}. è soddisfatto: nella categoria \CW0 dare un morfismo
 \[
 \umap{{\textstyle\bigvee_\alpha X_\alpha}}{K_n}
@@ -82,47 +83,92 @@ naturale nella coppia $(X,A)$.
 \end{frame*}
 
 \begin{frame*}
-\begin{onlyenv}<1>
+\begin{overlayarea}{\textwidth}{.86\textheight}
+\begin{onlyenv}<-11>
 \begin{diagram}[column sep=11pt]
-A\rar[hook]\dar[equal]\&X\rar[hook]\dar[equal]\&X\cup\cone{A}\rar[hook]\dar{\iso}\&(X\cup\cone{A})\cup\cone{X}\rar[hook]\dar{\iso}\&\big((X\cup\cone{A})\cup\cone{X}\big)\cup\cone(X\cup\cone{A})\dar{\iso}\\
-A\rar[hook]\dar\&X\rar\dar\&X/A\rar\dar\&\Sigma A\rar[hook]\dar\&\Sigma X\dar\\
-B\rar[hook]\&Y\rar\&Y/B\rar\&\Sigma B\rar[hook]\&\Sigma Y
+\tikzmarknode{mark1}{A}\rar[hook]\dar[onslide=<4->,equal]\&
+X\rar[hook]\dar[onslide=<4->,equal]\&
+X\cup\cone{A}\rar[onslide=<2->,hook]\dar[onslide=<5->]{\iso}\&
+{\visible<2->{(X\cup\cone{A})\cup\cone{X}}}\rar[hook,onslide=<3->]\dar[onslide=<6->]{\iso}\&
+{\visible<3->{\big((X\cup\cone{A})\cup\cone{X}\big)\cup\cone(X\cup\cone{A})}}\dar[onslide=<7->]{\iso}\\
+\tikzmarknode{mark2}{\visible<4->{A}}\rar[onslide=<4->,hook]\dar[onslide=<9>]{f}\&
+{\visible<4->{X}}\rar[onslide=<8->]\dar[onslide=<9>]{f}\&
+{\visible<5->{X/A}}\rar[onslide=<8->]\dar[onslide=<9>]{\bar{f}}\&
+{\visible<6->{\Sigma A}}\rar[onslide=<8->,hook]\dar[onslide=<9>]{\Sigma f}\&
+{\visible<7->{\Sigma X}}\dar[onslide=<9>]{\Sigma f}\\
+{\visible<9>{B}}\rar[onslide=<9>,hook]\&
+{\visible<9>{Y}}\rar[onslide=<9>]\&
+{\visible<9>{Y/B}}\rar[onslide=<9>]\&
+{\visible<9>{\Sigma B}}\rar[onslide=<9>,hook]\&
+{\visible<9>{\Sigma Y}}
 \end{diagram}
+\begin{tikzpicture}[overlay,remember picture,every node/.style={blue,anchor=base,draw,circle,font=\footnotesize,inner sep=2pt}]
+\node[left=.3cm of  mark1] {\textbf{1}};
+\node[left=.3cm of  mark2] {\textbf{2}};
+\end{tikzpicture}
+\end{onlyenv}
+\begin{onlyenv}<-9>
+\begin{center}
+\begin{overlayarea}{\textwidth}{2.5cm}
+\begin{tikzpicture}[framed]
+\def\h{.75}
+\def\wX{1.5}
+\def\wA{.75}
+\path (0,-\h) -- (0,\h*1.5);
+\matrix[ampersand replacement=\&,A/.style={very thick,line cap=round},column sep=.7cm,cells={}]{
+\draw[A] (0,0) -- (\wA,0);\&
+\draw[A] (0,0) -- (\wA,0);\draw (0,0) -- (\wX,0);\&
+\path[use as bounding box] (0,0) -- (\wX,0);\alt<-4>{
+\path[cone={style={blue},step=1.5cm/10,apex style={opacity=0},apex={(\wA/2,\h)}},postaction={draw,A}] (0,0) -- (\wA,0);\draw (0,0) -- (\wX,0);}{\draw (\wA,0) -- (\wX,0);\fill[blue] (\wA,0) circle (1pt);}\&
+\path[use as bounding box] (0,0) -- (\wX,0);\temporal<2-5>{}{\path[cone={step=1.5cm/10,apex style={opacity=0},apex={(\wA/2,\h)}},postaction={draw,A}] (0,0) -- (\wA,0);\path[cone={style={blue},step=1.5cm/10,apex style={opacity=0},apex={(\wX/2,-\h)}},postaction={draw}] (0,0) -- (\wX,0);}{\scoped[shift={(0,\h/2)}]\path[suspension={apex style={opacity=0},step=1.5cm/20,apex={(\wA/2,\h/2)}}] (\wA*.25,0) -- (\wA*.75,0);\fill[blue] (\wA/2,0) circle (1pt);}\&
+\path[use as bounding box] (0,0) -- (\wX,0);\temporal<3-6>{}{\path[cone={step=1.5cm/10,apex style={opacity=0},apex={(\wA/2,\h)}},postaction={draw,A}] (0,0) -- (\wA,0);\path[cone={step=1.5cm/10,apex style={opacity=0},apex={(\wX/2,-\h)}},postaction={draw}] (0,0) -- (\wX,0);\path[cone={style={blue},step=1.5cm/10,apex style={opacity=0},apex={(\wX/2+\wA/2,\h*1.5)}}] (\wX,0) -- (0,0) -- (\wA/2,\h) -- (\wA,0);}{\scoped[shift={(0,-\h/2)}]\path[suspension={apex style={opacity=0},step=1.5cm/20,apex={(\wX/2,\h/2)}}] (\wX*.25,0) -- (\wX*.75,0);\fill[blue] (\wX/2,0) circle (1pt);}
+\\
+};
+\end{tikzpicture}
+\end{overlayarea}
+\end{center}
 \end{onlyenv}
 
+\begin{visibleenv}<10->
 Applicando il funtore $h^n$, otteniamo una successione di gruppi abeliani:
 \begin{diagram}
 \hmaps{A,K_n}\&\hmaps{X,K_n}\lar\&\hmaps{X/A,K_n}\lar\&\hmaps{\Sigma A,K_n}\lar\&\hmaps{\Sigma X,K_n}\lar.
 \end{diagram}
 
-\begin{onlyenv}<1-2>
+\begin{onlyenv}<11-16>
 Per verificarne l'esattezza, è sufficiente mostrare che
 \begin{diagram}
 \hmaps{A,K_n}\&\hmaps{X,K_n}\lar\&\hmaps{X\cup\cone{A},K_n}\lar
 \end{diagram}
-è esatta.\end{onlyenv} \begin{onlyenv}<2>Sia $\map{f}{X}{K_n}$. Allora
+è esatta.\end{onlyenv} \begin{onlyenv}<12-16>Sia $\map{f}{X}{K_n}$. Allora
 \begingroup
 \addtolength\jot{.15em}
 \begin{align*}
-&\text{$f$ appartiene al nucleo di $\umap{\hmaps{X,K_n}}{\hmaps{A,K_n}}$}\\
-\iff&\text{$f|_A$ è omotopicamente banale (fissando il punto base)}\\
-\iff&\text{$f$ si estende a una mappa $\umap{X\cup\cone{A}}{K_n}$}\\
-\iff&\text{$f$ appartiene all'immagine di $\umap{\hmaps{X\cup\cone{A},K_n}}{\hmaps{X,K_n}}$}.
-\end{align*}
-\endgroup
+&\onslide<13->{\text{$f$ appartiene al nucleo di $\umap{\hmaps{X,K_n}}{\hmaps{A,K_n}}$}}\\
+\onslide<14->{\iff}&\onslide<14->{\text{$f|_A$ è omotopicamente banale (fissando il punto base)}}\\
+\onslide<15->{\iff}&\onslide<15->{\text{$f$ si estende a una mappa $\umap{X\cup\cone{A}}{K_n}$}}\\
+\onslide<16->{\iff}&\onslide<16->{\text{$f$ appartiene all'immagine di $\umap{\hmaps{X\cup\cone{A},K_n}}{\hmaps{X,K_n}}$}.}
+\end{align*}\endgroup
 \end{onlyenv}
 
-\begin{onlyenv}<3>
+\begin{onlyenv}<17->
 Tale successione è esatta e naturale. Posto $K=K_n,K'=K_{n+1}$, le due successioni corrispondenti si possono incollare.
+\begin{visibleenv}<18->
 \begin{diagram}[column sep=10pt]
-\&\&\hmaps{A,K}\dar{\iso}\&\hmaps{X,K}\lar\dar{\iso}\&\hmaps{X/A,K}\lar\&\hmaps{\Sigma A,K}\lar\\
+\&\&\hmaps{A,K}\dar{\iso}\ar[onslide=<19->,blue,ddl,bend right]\&\hmaps{X,K}\lar\dar{\iso}\&\hmaps{X/A,K}\lar\&\hmaps{\Sigma A,K}\lar\\
 \&\&\hmaps{A,\Omega K'}\dar{\iso}\&\hmaps{X,\Omega K'}\lar\dar{\iso}\\
 \hmaps{X,K'}\&\hmaps{X/A,K'}\lar\&\hmaps{\Sigma A,K'}\lar\&\hmaps{\Sigma X,K'}\lar
 \end{diagram}
+\end{visibleenv}
+
+\begin{visibleenv}<20->
 Otteniamo così la successione esatta lunga
 \begin{diagram}[column sep=small]
 \ldots\&\hmaps{X/A,K_{n+1}}\lar\&\hmaps{A,K_n}\lar\&\hmaps{X,K_n}\lar\&\hmaps{X/A,K_n}\lar\&\ldots\lar
 \end{diagram}
 naturale in $(X,A)$.
+\end{visibleenv}
 \end{onlyenv}
+\end{visibleenv}
+\end{overlayarea}
 \end{frame*}

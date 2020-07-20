@@ -7,7 +7,7 @@
 \begin{theorem}
 Siano $X$ un CW-complesso, $G$ un gruppo abeliano, $n\ge 0$ un intero. Allora esiste una biiezione
 \[
-\map[\iso]{T}{\hmaps{X,K(G,n)}}{\til{H}^n(X;G)}
+\map[\iso]{T}{\tikzmarknode{mark}{\hmaps{X,K(G,n)}}}{\til{H}^n(X;G)}
 \]
 naturale in $X$.
 \end{theorem}
@@ -15,8 +15,10 @@ naturale in $X$.
 \section*{Costruzione omotopica della coomologia}
 \subsection*{Enunciato}
 \begin{frame*}
-\statemainresult
-\begin{itemize}
+\statemainresult%
+\only<2>{\nointerlineskip\tikz[overlay,remember picture]\draw[overlay color] ($(mark.north east)+(1pt,3pt)$) rectangle ($(mark.south west)+(-1pt,-2pt)$);}
+\pause\pause
+\begin{itemize}[<+->]
 \item Esiste una struttura canonica di gruppo abeliano su $\hmaps{X,K(G,n)}$ che rende $T$ un isomorfismo di gruppi.
 \item $T$ è della forma
 \[
@@ -28,7 +30,7 @@ dove $\alpha$ è la ``classe fondamentale'' di $\til{H}^n(K(G,n);G)$.
 
 \subsection*{Strategia dimostrativa}
 \begin{frame*}
-\begin{enumerate}
+\begin{enumerate}[<+->]
 \addtolength\itemsep{1em}
 \item Struttura di gruppo su $\hmaps{X,K(G,n)}$ $\Longrightarrow$ definizione di $\Omega$-spettro.
 \item Per ogni $\Omega$-spettro $\{K_n\}$, la famiglia di funtori $h^n=\hmaps{-,K_n}$ è una teoria coomologica ridotta sulla categoria dei CW-complessi puntati.
@@ -36,15 +38,16 @@ dove $\alpha$ è la ``classe fondamentale'' di $\til{H}^n(K(G,n);G)$.
 \end{enumerate}
 \end{frame*}
 
-\include{aggiunzione-sigma-omega}
+%\include{aggiunzione-sigma-omega}
 \include{omega-spettri}
-\include{teorie-coomologiche}
+%\include{teorie-coomologiche}
 
 \section*{Costruzione omotopica della coomologia}
 \subsection*{Dimostrazione}
 \begin{frame*}
 \statemainresult
-\begin{itemize}
+\pause
+\begin{itemize}[<+->]
 \item Poniamo $K_n=K(G,n)$; sappiamo che è un $\Omega$-spettro.
 \item Estendendo la successione a $n\le 0$, otteniamo la famiglia di funtori
 \[
@@ -76,7 +79,8 @@ dove
 \[
 \alpha=T(\id_{K(G,n)})\in\til{H}^n(K(G,n);G).
 \]
-\begin{itemize}
+\pause
+\begin{itemize}[<+->]
 \item Se prendiamo $K(G,n)$ in modo che abbia come $(n-1)$-scheletro un punto, $\alpha$ è rappresentata dal cociclo cellulare che a ogni $n$-cella associa l'elemento
 \[
 [\map{\varphi_\alpha}{D^n_\alpha/\partial D^n_\alpha}{K(G,n)}]\in\pi_n(K(G,n))\iso G
@@ -84,7 +88,7 @@ dove
 indotto dalla mappa caratteristica.
 \item Analogamente, per ogni $\map{f}{X}{K(G,n)}$, $T(f)$ è rappresentato in coomologia dal cociclo cellulare che a ogni $n$-cella di $X$ associa l'elemento di $\pi_n(K(G,n))$ indotto dalla composizione
 \begin{diagram}
-D^n_\alpha/\partial D^n_\alpha\rar{\varphi_\alpha}\&X^n/X^{n-1}\rar{f}\&K(G,n).
+D^n_\alpha/\partial D^n_\alpha\rar{\varphi_\alpha}\&X^n\rar{f}\&K(G,n).
 \end{diagram}
 \end{itemize}
 \end{frame*}

@@ -1,10 +1,13 @@
-\usetikzlibrary{decorations.markings,decorations.pathmorphing,math,calc,backgrounds,quotes}
+\usetikzlibrary{decorations.markings,decorations.pathmorphing,math,calc,backgrounds,quotes,tikzmark,positioning}
 \tikzset{
 invisible/.style={opacity=0},
 onslide/.style={alt={#1{}{invisible}}},
 alt/.code args={<#1>#2#3}{
 \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}
-}
+},
+overlay color/.style={blue!60},
+overlay arrow/.style={-latex,overlay color},
+overlay text/.style={blue!80},
 }
 \tikzset{
 base cone/.style={
