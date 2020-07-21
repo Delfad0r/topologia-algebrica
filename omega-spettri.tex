@@ -86,11 +86,11 @@ naturale in $(X,A)$.
 \begin{overlayarea}{\textwidth}{.86\textheight}
 \begin{onlyenv}<-11>
 \begin{diagram}[column sep=11pt]
-\tikzmarknode{mark1}{A}\rar[hook]\dar[onslide=<4->,equal]\&
-X\rar[hook]\dar[onslide=<4->,equal]\&
-X\cup\cone{A}\rar[onslide=<2->,hook]\dar[onslide=<5->]{\iso}\&
-{\visible<2->{(X\cup\cone{A})\cup\cone{X}}}\rar[hook,onslide=<3->]\dar[onslide=<6->]{\iso}\&
-{\visible<3->{\big((X\cup\cone{A})\cup\cone{X}\big)\cup\cone(X\cup\cone{A})}}\dar[onslide=<7->]{\iso}\\
+\tikzmarknode[alt=<9>{gray}{black}]{mark1}{A}\rar[hook,alt=<9>{gray}{black}]\dar[onslide=<4->,equal,alt=<9>{gray}{black}]\&
+|[alt=<9>{gray}{black}]|X\rar[hook,alt=<9>{gray}{black}]\dar[onslide=<4->,equal,alt=<9>{gray}{black}]\&
+|[alt=<9>{gray}{black}]|X\cup\cone{A}\rar[onslide=<2->,hook,alt=<9>{gray}{black}]\dar[onslide=<5->,alt=<9>{gray}{black}]{\iso}\&
+|[onslide=<2->,alt=<9>{gray}{black}]|(X\cup\cone{A})\cup\cone{X}\rar[hook,onslide=<3->,alt=<9>{gray}{black}]\dar[onslide=<6->,alt=<9>{gray}{black}]{\iso}\&
+|[onslide=<3->,alt=<9>{gray}{black}]|\big((X\cup\cone{A})\cup\cone{X}\big)\cup\cone(X\cup\cone{A})\dar[onslide=<7->,alt=<9>{gray}{black}]{\iso}\\
 \tikzmarknode{mark2}{\visible<4->{A}}\rar[onslide=<4->,hook]\dar[onslide=<9>]{f}\&
 {\visible<4->{X}}\rar[onslide=<8->]\dar[onslide=<9>]{f}\&
 {\visible<5->{X/A}}\rar[onslide=<8->]\dar[onslide=<9>]{\bar{f}}\&

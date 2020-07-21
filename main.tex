@@ -1,7 +1,14 @@
 \documentclass[9pt]{beamer}
 \usepackage{mystyle}
 
+\title{Costruzione omotopica della coomologia}
+\subtitle{Seminario di Topologia Algebrica}
+\author{Filippo Gianni Baroni}
+\date{22 luglio 2020}
+
 \begin{document}
+
+\frame{\titlepage}
 
 \newcommand*{\statemainresult}{%
 \begin{theorem}
@@ -88,7 +95,7 @@ dove
 indotto dalla mappa caratteristica.
 \item Analogamente, per ogni $\map{f}{X}{K(G,n)}$, $T(f)$ è rappresentato in coomologia dal cociclo cellulare che a ogni $n$-cella di $X$ associa l'elemento di $\pi_n(K(G,n))$ indotto dalla composizione
 \begin{diagram}
-D^n_\alpha/\partial D^n_\alpha\rar{\varphi_\alpha}\&X^n\rar{f}\&K(G,n).
+D^n_\alpha/\partial D^n_\alpha\rar{\varphi_\alpha}\&X^n/X^{n-1}\rar{f}\&K(G,n).
 \end{diagram}
 \end{itemize}
 \end{frame*}
