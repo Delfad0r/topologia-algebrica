@@ -12,18 +12,20 @@ h^0(S^0)\iso \bar{h}^0(S^0)=G.
 \]
 Allora per ogni $n\in\ZZ$ i funtori $h^n$ e $\bar{h}^n$ sono isomorfi.
 \end{theorem}
+\pause
 \begin{remark}
 Se $h$ è una teoria coomologica ridotta, è facile verificare che esiste un isomorfismo di funtori
 \[
 \map{h^n\iso h^{n+1}\circ\Sigma}{\CW0}{\Ab^{\text{op}}.}
 \]
+\pause
 Di conseguenza possiamo limitarci a considerare CW complessi senza $1$-celle (infatti $\Sigma^2X$ ha una struttura di CW complesso senza $1$-celle).
 \end{remark}
 \end{frame*}
 
 \subsection*{Dimostrazione}
 \begin{frame*}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item La coomologia di $S^n$ è banale in ogni dimensione, tranne per
 \[
 h^n(S^n)=G.
@@ -51,15 +53,17 @@ inducono isomorfismi
 \begin{frame*}
 Dunque il complesso cellulare è della forma
 \begin{diagram}[column sep=10pt]
-\ldots\rar\&{\textstyle\prod_\alpha G_\alpha}\rar{d}\ar[dd,dash,"\iso"]\&{\textstyle\prod_\beta G_\beta}\ar[dd,dash,"\iso"]\rar\ar[rd]\&\ldots\\
-G_\alpha\ar[ru]\dar[dash]{\iso}\&\&\&G_\beta\dar[dash]{\iso}\\
-h^n(D^n_\alpha/\partial D^n_\alpha)\rar\&h^n(X^n/X^{n-1})\rar{d}\&h^{n+1}(X^{n+1}/X^n)\rar\&h^{n+1}(D^{n+1}_\beta/\partial D^{n+1}_\beta)\dar[dash]{\iso}\\
-\&\&\&h^n(\partial D^{n+1}_\beta)\nospacepunct{.}
+\ldots\rar\&{\textstyle\prod_\alpha G_\alpha}\rar{d}\ar[dd,dash,"\iso"]\&{\textstyle\prod_\beta G_\beta}\ar[dd,dash,"\iso"]\rar\ar[onslide=<3->,rd]\&\ldots\\
+{\visible<2->{G_\alpha}}\ar[onslide=<2->,ru]\dar[onslide=<2->,dash]{\iso}\ar[onslide=<4->,blue,bend left=20,rrr]\&\&\&{\visible<3->{G_\beta}}\dar[onslide=<3->,dash]{\iso}\\
+{\visible<2->{h^n(D^n_\alpha/\partial D^n_\alpha)}}\rar[onslide=<2->]\&h^n(X^n/X^{n-1})\rar{d}\&h^{n+1}(X^{n+1}/X^n)\rar[onslide=<3->]\&{\visible<3->{h^{n+1}(D^{n+1}_\beta/\partial D^{n+1}_\beta)}}\dar[onslide=<3->,dash]{\iso}\\
+\&\&\&{\visible<3->{h^n(\partial D^{n+1}_\beta)\nospacepunct{.}}}
 \end{diagram}
+\begin{visibleenv}<4->
 La mappa $\umap{G_\alpha}{G_\beta}$ è indotta dall'applicazione continua
 \begin{diagram}
-S^n\iso\partial D^{n+1}_\beta\rar\&X^n\rar\&D^n_\alpha/\partial D^n_\alpha\iso S^n.
+{\visible<5->{S^n\iso}}\partial D^{n+1}_\beta\rar\&X^n\rar\&D^n_\alpha/\partial D^n_\alpha{\visible<5->{\iso S^n.}}
 \end{diagram}
+\end{visibleenv}
 \end{frame*}
 
 \begin{frame*}
@@ -72,12 +76,13 @@ indotta in coomologia da una funzione continua
 \map{f}{S^n}{S^n}
 \]
 è la moltiplicazione per il grado di $f$.
-\begin{itemize}
+\pause
+\begin{itemize}[<+->]
 \item Sappiamo che due mappe $\umap{S^n}{S^n}$ sono omotope se e solo se hanno lo stesso grado.
 \item L'enunciato è vero per $\deg(f)=0,1$ (funzione costante e identità).
 \item È sufficiente mostrare che $(f+g)^*=f^*+g^*$.
 \end{itemize}
-\begin{lemma}
+\begin{lemma}<+->
 Siano $X,Y$ CW complessi, $f,g\in\hmaps{\Sigma X,Y}$. Allora
 \[
 (f\cdot g)^*=f^*+g^*.
@@ -86,29 +91,35 @@ Siano $X,Y$ CW complessi, $f,g\in\hmaps{\Sigma X,Y}$. Allora
 \end{frame*}
 
 \begin{frame*}
-Un omomorfismo
-\[
-\umap[d]{{\textstyle\prod_\alpha G_\alpha}}{{\textstyle\prod_\beta G_\beta}}
-\]
-non è determinato dai valori che assume sui singoli fattori $G_\alpha$. Tuttavia per ogni $\beta$ la composizione
+\visible<2->{Un omomorfismo}
 \begin{diagram}
-{\textstyle\prod_\alpha G_\alpha}\rar{d}\dar\&{\textstyle\prod_\beta G_\beta}\rar\&G_\beta\iso h^n(\partial D^{n+1}_\beta)\\
-{\textstyle\prod_\gamma G_\gamma}\ar[urr]
+|[alt=<2-6>{gray}{}]|G_\alpha\rar[alt=<2-6>{gray}{}]\&{\textstyle\prod_\alpha G_\alpha}\rar{d}\&{\textstyle\prod_\beta G_\beta}\rar\&G_\beta
 \end{diagram}
-è indotta da
+
+\begin{visibleenv}<2->
+\alt<7>{{\color{gray}non}}{non} è determinato dalle restrizioni ai singoli fattori $G_\alpha$. \visible<3->{Tuttavia per ogni $\beta$ la composizione
 \begin{diagram}
-X^n/X^{n-1}\&X^n\lar\&\partial D^{n+1}_\beta\lar\ar[dl]\\
-X^n_\beta/X^{n-1}\uar[hook]\&X^n_\beta\lar\uar[hook],
-\end{diagram}
-dove $X^n_\beta$ si ottiene attaccando a $X^{n-1}$ le $n$-celle che intersecano l'immagine di $\partial D^{n+1}_\beta$ (sono in numero finito).
+{\textstyle\prod_\alpha G_\alpha}\rar{d}\dar[onslide=<6->,blue]\&{\textstyle\prod_\beta G_\beta}\rar\&G_\beta\iso h^n(\partial D^{n+1}_\beta)\\
+\tikzmarknode[onslide=<6->,blue]{mark1}{\prod_\gamma G_\gamma}\ar[onslide=<6->,blue,urr]
+\end{diagram}}
+\visible<4->{è indotta da
+\begin{diagram}
+X^n/X^{n-1}\&X^n\lar\&\partial D^{n+1}_\beta\lar\ar[onslide=<5->,blue,dl]\\
+|[onslide=<5->,blue]|X^n_\beta/X^{n-1}\uar[onslide=<5->,blue,hook]\&|[onslide=<5->,blue]|X^n_\beta\lar[onslide=<5->,blue]\uar[onslide=<5->,blue,hook],
+\end{diagram}}
+\visible<5->{dove $X^n_\beta$ si ottiene attaccando a $X^{n-1}$ le $n$-celle che intersecano l'immagine di $\partial D^{n+1}_\beta$ (sono in numero finito).}
+\end{visibleenv}
 \end{frame*}
 
 \begin{frame*}
-Riassumendo:
-\begin{itemize}
+Riassumendo:\pause
+\begin{itemize}[<+->]
 \item possiamo calcolare i gruppi $h^n(X)$ a partire dal complesso cellulare
-\begin{diagram}
-\ldots\rar\&{\textstyle\prod_\alpha G_\alpha}\rar\&{\textstyle\prod_\beta G_\beta}\rar\&\ldots;
+%\begin{diagram}
+%\ldots\rar\&{\textstyle\prod_\alpha G_\alpha}\rar\&{\textstyle\prod_\beta G_\beta}\rar\&\ldots;
+%\end{diagram}
+\begin{diagram}[column sep=10pt]
+\ldots\rar\&h^{n-1}(X^{n-1}/X^{n-2})\rar\&h^n(X^n/X^{n-1})\rar\&h^{n+1}(X^{n+1}/X^n)\rar\&\ldots;
 \end{diagram}
 \item i gruppi di questo complesso dipendono solo dalla struttura di CW-complesso di $X$;
 \item le mappe di bordo sono determinate dal grado di certe funzioni continue
@@ -117,15 +128,16 @@ Riassumendo:
 \]
 che dipendono dalle mappe caratteristiche delle celle.
 \end{itemize}
-Di conseguenza, teorie coomologiche diverse hanno lo stesso complesso cellulare, dunque per ogni $X$ abbiamo un isomorfismo
+
+\visible<+>{Di conseguenza, teorie coomologiche diverse hanno lo stesso complesso cellulare, dunque per ogni $X$ abbiamo un isomorfismo
 \[
 h^n(X)\iso\bar{h}^n(X).
-\]
+\]}
 \end{frame*}
 
 \begin{frame*}
-Per verificare la naturalità, sia $\map{f}{X}{Y}$, cellulare a meno di omotopia.
-\begin{itemize}
+Per verificare la naturalità, sia $\map{f}{X}{Y}$, cellulare a meno di omotopia.\pause
+\begin{itemize}[<+->]
 \item Vale $f(X^n)\subs Y^n$, dunque $f$ induce un morfismo fra i complessi cellulari
 \begin{diagram}
 \ldots\rar\&h^n(Y^n/Y^{n-1})\rar\dar{f^*}\&h^{n+1}(Y^{n+1}/Y^n)\rar\dar{f^*}\&\ldots\\
@@ -136,9 +148,10 @@ Per verificare la naturalità, sia $\map{f}{X}{Y}$, cellulare a meno di omotopia
 D^n_\alpha/\partial D^n_\alpha\rar\&X^n/X^{n-1}\rar{f}\&Y^n/Y^{n-1}\rar\&D^n_\beta/\partial D^n_\beta.
 \end{diagram}
 \end{itemize}
+\visible<+>{\vspace{-.4cm}
 Di conseguenza, a meno dell'isomorfismo che abbiamo stabilito fra i complessi cellulari di $h^*$ e $\bar{h}^*$, $f$ induce lo stesso morfismo di complessi nelle due teorie coomologiche. Pertanto l'isomorfismo
 \[
 h^n(X)\iso\bar{h}^n(X)
 \]
-è naturale in $X$.
+è naturale in $X$.}
 \end{frame*}

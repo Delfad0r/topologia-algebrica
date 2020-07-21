@@ -102,15 +102,15 @@ X\cup\cone{A}\rar[onslide=<2->,hook]\dar[onslide=<5->]{\iso}\&
 {\visible<9>{\Sigma B}}\rar[onslide=<9>,hook]\&
 {\visible<9>{\Sigma Y}}
 \end{diagram}
-\begin{tikzpicture}[overlay,remember picture,every node/.style={blue,anchor=base,draw,circle,font=\footnotesize,inner sep=2pt}]
-\node[left=.3cm of  mark1] {\textbf{1}};
-\node[left=.3cm of  mark2] {\textbf{2}};
+\begin{tikzpicture}[overlay,remember picture,every node/.style={blue,anchor=base,draw,circle,font=\footnotesize,inner sep=1pt}]
+\node[left=.3cm of  mark1,onslide=<3->] {\textbf{1}};
+\node[left=.3cm of  mark2,onslide=<8->] {\textbf{2}};
 \end{tikzpicture}
 \end{onlyenv}
 \begin{onlyenv}<-9>
+\begin{overlayarea}{\textwidth}{2.8cm}
 \begin{center}
-\begin{overlayarea}{\textwidth}{2.5cm}
-\begin{tikzpicture}[framed]
+\begin{tikzpicture}[inner frame ysep=1.5ex,background rectangle/.style={draw=blue!50,fill=blue!8,rounded corners=1ex,drop shadow},framed]
 \def\h{.75}
 \def\wX{1.5}
 \def\wA{.75}
@@ -125,15 +125,16 @@ X\cup\cone{A}\rar[onslide=<2->,hook]\dar[onslide=<5->]{\iso}\&
 \\
 };
 \end{tikzpicture}
-\end{overlayarea}
 \end{center}
+\end{overlayarea}
 \end{onlyenv}
 
-\begin{visibleenv}<10->
+\begin{onlyenv}<10->
 Applicando il funtore $h^n$, otteniamo una successione di gruppi abeliani:
 \begin{diagram}
-\hmaps{A,K_n}\&\hmaps{X,K_n}\lar\&\hmaps{X/A,K_n}\lar\&\hmaps{\Sigma A,K_n}\lar\&\hmaps{\Sigma X,K_n}\lar.
+\tikzmarknode{mark3}{\hmaps{A,K_n}}\&\hmaps{X,K_n}\lar\&\hmaps{X/A,K_n}\lar\&\hmaps{\Sigma A,K_n}\lar\&\hmaps{\Sigma X,K_n}\lar.
 \end{diagram}
+\tikz[overlay,remember picture] \node[blue,anchor=base,draw,circle,font=\footnotesize,inner sep=1pt,left=.3cm of  mark3] {\textbf{3}};
 
 \begin{onlyenv}<11-16>
 Per verificarne l'esattezza, è sufficiente mostrare che
@@ -155,10 +156,14 @@ Per verificarne l'esattezza, è sufficiente mostrare che
 Tale successione è esatta e naturale. Posto $K=K_n,K'=K_{n+1}$, le due successioni corrispondenti si possono incollare.
 \begin{visibleenv}<18->
 \begin{diagram}[column sep=10pt]
-\&\&\hmaps{A,K}\dar{\iso}\ar[onslide=<19->,blue,ddl,bend right]\&\hmaps{X,K}\lar\dar{\iso}\&\hmaps{X/A,K}\lar\&\hmaps{\Sigma A,K}\lar\\
+\&\&\hmaps{A,K}\dar{\iso}\ar[onslide=<19->,blue,ddl,bend right]\&\hmaps{X,K}\lar\dar{\iso}\&\hmaps{X/A,K}\lar\&\tikzmarknode{mark3 again}{\hmaps{\Sigma A,K}}\lar\\
 \&\&\hmaps{A,\Omega K'}\dar{\iso}\&\hmaps{X,\Omega K'}\lar\dar{\iso}\\
-\hmaps{X,K'}\&\hmaps{X/A,K'}\lar\&\hmaps{\Sigma A,K'}\lar\&\hmaps{\Sigma X,K'}\lar
+\tikzmarknode{mark3 prime}{\hmaps{X,K'}}\&\hmaps{X/A,K'}\lar\&\hmaps{\Sigma A,K'}\lar\&\hmaps{\Sigma X,K'}\lar
 \end{diagram}
+\begin{tikzpicture}[overlay,remember picture,every node/.style={blue,anchor=base,draw,circle,font=\footnotesize,inner sep=1pt}]
+\node[right=.3cm of  mark3 again] {\textbf{3}};
+\node[left=.3cm of  mark3 prime] {\textbf{3'}};
+\end{tikzpicture}
 \end{visibleenv}
 
 \begin{visibleenv}<20->
@@ -169,6 +174,6 @@ Otteniamo così la successione esatta lunga
 naturale in $(X,A)$.
 \end{visibleenv}
 \end{onlyenv}
-\end{visibleenv}
+\end{onlyenv}
 \end{overlayarea}
 \end{frame*}

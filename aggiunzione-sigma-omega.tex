@@ -34,6 +34,7 @@ Abbiamo l'uguaglianza (per ora solo insiemistica)
 
 \subsection*{Sospensione}
 \begin{frame*}
+\begin{overlayarea}{\textwidth}{.8\textheight}
 \begin{itemize}
 \item La sospensione $SX$ di uno spazio topologico $X$ è
 \begin{align*}
@@ -87,6 +88,7 @@ che si restringe a
 \end{tikzpicture}
 \end{center}
 \end{onlyenv}
+\end{overlayarea}
 \end{frame*}
 
 \begin{frame*}
@@ -191,11 +193,12 @@ che assumono il valore $y_0$ sul bordo. Con lo stesso ragionamento usato per il 
 \begin{proposition}
 I funtori $\Sigma$ e $\Omega$ sono aggiunti. In altre parole, esiste una biiezione
 \[
-\umap[\iso]{\hmaps{\Sigma X,Y}}{\hmaps{X,\Omega Y}}
+\umap[\tikzmarknode{mark}{\iso}]{\hmaps{\Sigma X,Y}}{\hmaps{X,\Omega Y}}
 \]
-naturale in $X$ e $Y$. Inoltre queste biiezioni sono isomorfismi di gruppi.
+\only<2>{\tikz[overlay,remember picture] \draw ++(mark.south) +(1,-1.8) node[anchor=west,overlay text] {$Y^{X\times[0,1]}\longleftrightarrow \big(Y^{[0,1]}\big)^X$} edge[overlay arrow,shorten >=7pt,bend left] +(0,0);}
+naturale in $X$ e $Y$. Inoltre questa biiezione è un isomorfismo di gruppi.
 \end{proposition}
-\pause
+\pause\pause
 \begin{remarks}
 \begin{itemize}[<+->]
 \item Considerando $S^{n-1}$, otteniamo che

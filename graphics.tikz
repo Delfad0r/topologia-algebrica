@@ -1,4 +1,4 @@
-\usetikzlibrary{decorations.markings,decorations.pathmorphing,math,calc,backgrounds,quotes,tikzmark,positioning}
+\usetikzlibrary{decorations.markings,decorations.pathmorphing,math,calc,backgrounds,quotes,tikzmark,positioning,shadows}
 \tikzset{
 invisible/.style={opacity=0},
 onslide/.style={alt={#1{}{invisible}}},
